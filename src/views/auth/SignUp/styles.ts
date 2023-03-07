@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 import {Form as defaultForm} from 'formik';
 
 export const LoginBackImg = styled.div`
-     background: rgb(0, 0, 0);
+     background: rgb(105, 200, 236);
      background: linear-gradient(
           180deg,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(66, 0, 36, 1) 100%
+          rgba(105, 200, 236, 1) 1%,
+          rgba(105, 200, 236, 1) 100%
      );
      background-attachment: fixed;
      background-position: center;
@@ -23,7 +23,7 @@ export const MainFormContainer = styled.div`
      justify-content: center;
 `;
 export const Form = styled(defaultForm)`
-     background-color: white;
+     background-color: ${({theme}) => theme.colors.primary};
      border-radius: 10px;
      height: 35rem;
      margin-left: 1.7rem;
@@ -40,6 +40,7 @@ export const Form = styled(defaultForm)`
 
 export const SignUpTitle = styled.h1`
      font-family: ${({theme}) => theme.fonts.primary};
+     color: ${({theme}) => theme.colors.tertiary};
      font-size: ${({theme}) => theme.fontSizes.mediumSmall};
      font-weight: ${({theme}) => theme.fontWeights.bold};
      margin-bottom: 1.125rem;
@@ -92,7 +93,7 @@ export const Input = styled.input<{$hasError?: boolean}>`
      border-radius: 5px;
      border: 0.1px solid
           ${({$hasError, theme}) =>
-               $hasError ? theme.colors.danger : theme.colors.secondary};
+               $hasError ? theme.colors.danger : theme.colors.tertiary};
      padding-left: 0.5rem;
      box-sizing: border-box;
      font-family: ${({theme}) => theme.fonts.primary};
@@ -136,7 +137,7 @@ export const LinkLoginContainer = styled.div`
 `;
 
 export const LinkLoginText = styled(Link)`
-     color: ${({theme}) => theme.colors.primary};
+     color: ${({theme}) => theme.colors.tertiary};
      font-family: ${({theme}) => theme.fonts.primary};
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: 500;
@@ -151,7 +152,7 @@ export const LinkLoginText = styled(Link)`
 `;
 
 export const ButtonSignUp = styled.button`
-     background-color: ${({theme}) => theme.colors.primary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      border-radius: 10px;
      border: none;
      color: white;

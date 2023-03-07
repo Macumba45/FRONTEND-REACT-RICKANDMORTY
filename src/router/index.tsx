@@ -1,8 +1,9 @@
 import {Navigate, useLocation, useNavigate} from 'react-router-dom';
 import {FC, memo, useEffect} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Profile from '../views/Profile';
+import Login from '../views/auth/Login';
 import {getAuthenticatedToken} from '../services/storage';
+import SignUp from '../views/auth/SignUp';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
@@ -65,6 +66,10 @@ const Router: FC = () => {
      return (
           <BrowserRouter>
                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+
                     {/* <Route
                     path="/"
                     element={
@@ -90,14 +95,14 @@ const Router: FC = () => {
                     }
                 /> */}
 
-                    <Route
-                         path="/profile"
-                         element={
-                              <ProtectedRoutes>
-                                   <Profile />
-                              </ProtectedRoutes>
-                         }
-                    />
+                    {/* <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoutes>
+                            <Profile />
+                        </ProtectedRoutes>
+                    }
+                /> */}
 
                     <Route path="*" element={<NotFound />} />
                </Routes>
