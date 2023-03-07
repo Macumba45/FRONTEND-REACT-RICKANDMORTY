@@ -1,7 +1,6 @@
-# Introducction 
+# Introducction
 
-This project is based on the creation of all the FrontEnd part of the BackEnd of a BootCamp team. His project is to show the characters, episodes and locations of the episodes. 
-
+This project is based on the creation of all the FrontEnd part of the BackEnd of a BootCamp team. His project is to show the characters, episodes and locations of the episodes.
 
 We will do the following:
 
@@ -16,7 +15,6 @@ We will do the following:
                 3- Edit entity
                 4- Add to favorites
 
-
 The objective of this mini project is to continue practicing in React and get the most out of it.
 
 I hope you like it <3
@@ -29,15 +27,13 @@ https://github.com/Macumba45/FRONTEND-REACT-RICKANDMORTY
 
 # Open de project and the terminal
 
-To install all the dependencies 
+To install all the dependencies
 
 ### `yarn`
-
 
 # Once all have been installed
 
 ### `yarn start`
-
 
 # Getting Started with Create React App
 
