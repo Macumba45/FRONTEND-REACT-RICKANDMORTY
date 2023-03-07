@@ -6,6 +6,9 @@ import { getAuthenticatedToken } from '../services/storage';
 import SignUp from '../views/auth/SignUp';
 import Welcome from '../views/Welcome';
 import Characters from '../views/Characters';
+import Episodes from '../views/Episodes';
+import Locations from '../views/Locations';
+import Profile from '../views/Profile';
 
 const Router: FC = () => {
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -74,6 +77,10 @@ const Router: FC = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/welcome" element={<Welcome />} />
                 <Route path="/characters" element={<Characters />} />
+                <Route path="/episodes" element={<Episodes />} />
+                <Route path="/locations" element={<Locations />} />
+                <Route path="/profile" element={<Profile />} />
+
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>

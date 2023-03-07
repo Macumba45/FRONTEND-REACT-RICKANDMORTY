@@ -1,8 +1,8 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import NavBar from '../../../src/componets/NavBar';
 import NavBarBottom from '../../componets/NavBarBottom';
 
-const Characters: FC = () => {
+const Profile: FC = () => {
      return (
           <>
                <NavBar />
@@ -11,4 +11,4 @@ const Characters: FC = () => {
      );
 };
 
-export default memo(Characters);
+export default memo(Profile);

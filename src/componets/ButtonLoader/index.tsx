@@ -9,13 +9,19 @@ const ButtonLoadingPosition: FC = () => {
         <Stack
             spacing={4}
             direction="row"
-            sx={{ margin: '0 auto', backgroundColor: '#fbfd7c', borderRadius: '10px', fontFamily: 'Roboto' }}
+            sx={{
+                margin: '0 auto',
+                backgroundColor: '#fbfd7c',
+                borderRadius: '10px',
+                fontFamily: 'Roboto',
+            }}
         >
             <Button
                 sx={{
-                    color: 'black', border: 'none',
+                    color: 'black',
+                    border: 'none',
                     '&:hover': {
-                        color: 'white',
+                        color: '#fbfd7c',
                         backgroundColor: 'black',
                     },
                     width: '300px',
@@ -25,8 +31,8 @@ const ButtonLoadingPosition: FC = () => {
                     fontWeight: '400',
                     ...(isLoading && {
                         backgroundColor: 'black',
-                        color: 'black'
-                    })
+                        color: 'black',
+                    }),
                 }}
                 loading={isLoading}
                 loadingPosition="start"
