@@ -1,10 +1,9 @@
-import {FC, memo, useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {initialValues} from '../SignUp/constants';
-import {Field, FieldProps, Formik} from 'formik';
-import {validationSchema} from './constants';
+import { FC, memo } from 'react';
+import { initialValues } from '../SignUp/constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema } from './constants';
 import NavBar from '../../../componets/NavBar';
-import type {SignUpProps} from './type';
+import useLogic from './logic';
 import {
      MainFormContainer,
      Form,
@@ -22,28 +21,12 @@ import {
      Error,
      NameContainer,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage';
-import {hadledSubmitSignup} from '../../../services/api/auth';
+
+
 
 const SignUp: FC = () => {
-     const navigate = useNavigate();
 
-     const handleSubmit = useCallback(
-          async (values: SignUpProps) => {
-               try {
-                    const response: Response = await hadledSubmitSignup(values);
-
-                    if (response.ok) {
-                         const data = await response.json();
-                         setAuthenticatedToken(data);
-                         navigate('/feed');
-                    }
-               } catch (error: any) {
-                    console.log(error);
-               }
-          },
-          [navigate]
-     );
+     const { handleSubmit } = useLogic();
 
      return (
           <>
@@ -58,7 +41,7 @@ const SignUp: FC = () => {
                               <Form>
                                    <SignUpTitle>SignUp</SignUpTitle>
                                    <Field name="name">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>Name* </Label>
@@ -79,7 +62,7 @@ const SignUp: FC = () => {
                                         )}
                                    </Field>
                                    <Field name="email">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Email* </Label>
@@ -100,7 +83,7 @@ const SignUp: FC = () => {
                                         )}
                                    </Field>
                                    <Field name="password">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <PasswordContainer>
                                                   <LabelContainer>
                                                        <Label>Password* </Label>
