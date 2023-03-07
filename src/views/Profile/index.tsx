@@ -1,17 +1,10 @@
-import { FC, memo } from "react";
-import useLogic from "./logic";
+import {FC, memo} from 'react';
+import useLogic from './logic';
 
 const Profile: FC = () => {
-     
-     const {
+     const {} = useLogic();
 
-     } = useLogic();
-
-
-     return (
-
-          <></>
-     );
+     return <></>;
 };
 
 export default memo(Profile);

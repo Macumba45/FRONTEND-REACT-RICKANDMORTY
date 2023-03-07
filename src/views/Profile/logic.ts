@@ -1,7 +1,7 @@
-import { getAuthenticatedToken } from "../../services/storage";
+import {getAuthenticatedToken} from '../../services/storage';
 
 const useLogic = () => {
-    return {};
+     return {};
 };
 
 export default useLogic;
