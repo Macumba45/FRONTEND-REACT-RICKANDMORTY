@@ -1,11 +1,11 @@
 import { FC, memo } from 'react';
 import NavBar from '../NavBar';
 
-const CardCharacter: FC = () => {
+const CardLocations: FC = () => {
     return (
 
         <h1>characters</h1>
     )
 };
 
-export default memo(CardCharacter);
+export default memo(CardLocations);
