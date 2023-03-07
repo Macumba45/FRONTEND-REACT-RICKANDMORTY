@@ -1,5 +1,5 @@
-import {useLocation, useNavigate} from 'react-router-dom';
-import {useCallback, useState} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCallback, useState } from 'react';
 
 export const useNavBarLogic = () => {
      const navigate = useNavigate();
@@ -18,10 +18,8 @@ export const useNavBarLogic = () => {
      }, [navigate]);
 
      const handleBackPage = useCallback(() => {
-          if (location.pathname.startsWith('/categories/')) {
-               navigate('/categories');
-          } else {
-               navigate('/feed');
+          if (location.pathname.startsWith('/profile')) {
+               navigate('/characters');
           }
      }, []);
 

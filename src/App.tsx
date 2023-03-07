@@ -1,10 +1,10 @@
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import Router from './router';
-import {Reset} from 'styled-reset';
+import { Reset } from 'styled-reset';
 
 function App() {
-     localStorage.clear();
+     // localStorage.clear();
 
      return (
           <ThemeProvider theme={theme}>

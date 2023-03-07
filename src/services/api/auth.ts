@@ -1,7 +1,7 @@
-import {Props} from '../../views/auth/Login/type';
-import {SignUpProps} from '../../views/auth/SignUp/type';
+import { LoginProps } from '../../views/auth/Login/type';
+import { SignUpProps } from '../../views/auth/SignUp/type';
 
-export const handledSubmitLogin = async (values: Props): Promise<Response> => {
+export const handledSubmitLogin = async (values: LoginProps): Promise<Response> => {
      try {
           const response = await fetch('http://localhost:8000/auth/login', {
                method: 'POST',

@@ -28,17 +28,19 @@ const NavBarBottom: FC = () => {
                          value={location.pathname}
                          sx={{ flex: 1 }}
                     >
+
+                         <BottomNavigationAction
+                              label="Episodes"
+                              icon={<PlayArrowIcon
+                                   fontSize='medium' />}
+                              value="/episodes"
+                              onClick={goToEpisodesPage}
+                         />
                          <BottomNavigationAction
                               label="Characters"
                               icon={<FavoriteIcon />}
                               value="/characters"
                               onClick={goToCharactersPage}
-                         />
-                         <BottomNavigationAction
-                              label="Episodes"
-                              icon={<PlayArrowIcon />}
-                              value="/episodes"
-                              onClick={goToEpisodesPage}
                          />
                          <BottomNavigationAction
                               label="Locations"
