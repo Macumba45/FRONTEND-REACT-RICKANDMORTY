@@ -1,44 +1,33 @@
-import {useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
-export const useNavBarBottomLogic = () => {
+export const useLogic = () => {
      const navigate = useNavigate();
      const location = useLocation();
-
      const isFeedPage = location.pathname === '/feed';
+     const [value, setValue] = useState(0);
 
-     const goToFeedPage = useCallback(() => {
-          navigate('/feed');
+     const goToCharactersPage = useCallback(async () => {
+          setValue(0);
+          navigate('/characters');
      }, [navigate]);
 
-     const goToRandomPage = useCallback(
-          (e: React.MouseEvent<HTMLButtonElement>) => {
-               navigate('/random');
-          },
-          [navigate]
-     );
+     const goToEpisodesPage = useCallback(async () => {
+          setValue(1);
+          navigate('/episodes');
+     }, [navigate]);
 
-     const goToCategoryPage = useCallback(
-          (e: React.MouseEvent<HTMLButtonElement>) => {
-               navigate('/categories');
-          },
-          [navigate]
-     );
-
-     const postNewFeed = useCallback(
-          (e: React.MouseEvent<HTMLButtonElement>) => {
-               navigate('/new-feed');
-          },
-          [navigate]
-     );
+     const goToLocationsPage = useCallback(async () => {
+          setValue(2);
+          navigate('/locations');
+     }, [navigate]);
 
      return {
-          navigate,
+          value,
+          goToEpisodesPage,
+          goToCharactersPage,
+          goToLocationsPage,
+          setValue,
           location,
-          isFeedPage,
-          goToFeedPage,
-          goToRandomPage,
-          goToCategoryPage,
-          postNewFeed,
      };
 };

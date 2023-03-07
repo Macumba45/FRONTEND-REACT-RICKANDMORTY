@@ -17,7 +17,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLogged = styled.nav`
-     background-color: ${({theme}) => theme.colors.primary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      height: ${({theme}) => theme.height.medium};
      position: fixed;
      top: 0;
@@ -84,21 +84,6 @@ export const NavbarLinkLogged = styled(Link)`
      }
 `;
 
-export const CompanyLogo = styled.div`
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     z-index: 2;
-     background-image: url(${Logo});
-     background-repeat: no-repeat;
-     background-size: contain;
-     background-color: white;
-     width: 80px;
-     height: 30px;
-     border-radius: 10px;
-`;
-
 export const IconContainerProfile = styled.div`
      width: 1.5rem;
      height: 1.5rem;
@@ -129,7 +114,7 @@ export const LogoutButton = styled.button`
      font-family: ${({theme}) => theme.fonts.primary};
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: ${({theme}) => theme.fontWeights.light};
-     background-color: ${({theme}) => theme.colors.primary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      border: none;
      color: ${({theme}) => theme.colors.light};
      cursor: pointer;

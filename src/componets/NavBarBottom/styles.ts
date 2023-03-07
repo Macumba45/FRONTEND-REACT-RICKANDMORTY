@@ -1,20 +1,10 @@
-import {styled} from '@mui/material/styles';
-import Fab from '@mui/material/Fab';
+import styled from 'styled-components';
 
-export const StyledFab = styled(Fab)({
-     position: 'absolute',
-     zIndex: 1,
-     top: -30,
-     left: 0,
-     right: 0,
-     margin: '0 auto',
-});
-
-export const StyledFabHome = styled(Fab)({
-     position: 'absolute',
-     zIndex: 1,
-     top: 2,
-     left: 0,
-     right: 0,
-     margin: '0 auto',
-});
+export const NavBarBottomContainer = styled.div`
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     position: fixed;
+     bottom: 0;
+     height: 56px;
+`;
