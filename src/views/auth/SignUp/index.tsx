@@ -1,7 +1,7 @@
-import { FC, memo } from 'react';
-import { initialValues } from '../SignUp/constants';
-import { Field, FieldProps, Formik } from 'formik';
-import { validationSchema } from './constants';
+import {FC, memo} from 'react';
+import {initialValues} from '../SignUp/constants';
+import {Field, FieldProps, Formik} from 'formik';
+import {validationSchema} from './constants';
 import NavBar from '../../../componets/NavBar';
 import useLogic from './logic';
 import {
@@ -22,11 +22,8 @@ import {
      NameContainer,
 } from './styles';
 
-
-
 const SignUp: FC = () => {
-
-     const { handleSubmit } = useLogic();
+     const {handleSubmit} = useLogic();
 
      return (
           <>
@@ -41,7 +38,7 @@ const SignUp: FC = () => {
                               <Form>
                                    <SignUpTitle>SignUp</SignUpTitle>
                                    <Field name="name">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>Name* </Label>
@@ -62,7 +59,7 @@ const SignUp: FC = () => {
                                         )}
                                    </Field>
                                    <Field name="email">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Email* </Label>
@@ -83,7 +80,7 @@ const SignUp: FC = () => {
                                         )}
                                    </Field>
                                    <Field name="password">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <PasswordContainer>
                                                   <LabelContainer>
                                                        <Label>Password* </Label>
