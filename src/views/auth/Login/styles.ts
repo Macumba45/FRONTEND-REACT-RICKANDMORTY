@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 import {Form as defaultForm} from 'formik';
 
 export const LoginBackImg = styled.div`
-     background: rgb(0, 0, 0);
+     background: rgb(105, 200, 236);
      background: linear-gradient(
           180deg,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(66, 0, 36, 1) 100%
+          rgba(105, 200, 236, 1) 1%,
+          rgba(105, 200, 236, 1) 100%
      );
      background-attachment: fixed;
      background-position: center;
@@ -24,7 +24,7 @@ export const MainFormContainer = styled.div`
 `;
 
 export const Form = styled(defaultForm)`
-     background-color: white;
+     background-color: ${({theme}) => theme.colors.primary};
      border-radius: 10px;
      height: 35rem;
      margin-left: 1.7rem;
@@ -44,6 +44,7 @@ export const LoginTitle = styled.h1`
      font-family: ${({theme}) => theme.fonts.primary};
      font-size: ${({theme}) => theme.fontSizes.mediumSmall};
      font-weight: ${({theme}) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.tertiary};
      margin-bottom: 3.125rem;
      margin-left: 1.875rem;
      margin-top: 3.125rem;
@@ -78,7 +79,7 @@ export const Input = styled.input<{$hasError?: boolean}>`
      border-radius: 5px;
      border: 0.1px solid
           ${({$hasError, theme}) =>
-               $hasError ? theme.colors.danger : theme.colors.secondary};
+               $hasError ? theme.colors.danger : theme.colors.tertiary};
      padding-left: 0.5rem;
      box-sizing: border-box;
      font-family: ${({theme}) => theme.fonts.primary};
@@ -131,7 +132,7 @@ export const LinkSignupContainer = styled.div`
 `;
 
 export const LinkSignupText = styled(Link)`
-     color: ${({theme}) => theme.colors.primary};
+     color: ${({theme}) => theme.colors.tertiary};
      font-family: ${({theme}) => theme.fonts.primary};
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: 500;
@@ -145,7 +146,7 @@ export const LinkSignupText = styled(Link)`
 `;
 
 export const ButtonLogin = styled.button`
-     background-color: ${({theme}) => theme.colors.primary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      border-radius: 10px;
      border: none;
      color: white;

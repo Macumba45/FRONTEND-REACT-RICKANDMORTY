@@ -5,7 +5,7 @@ import iconSignUp from './assets/icons8-male-user-96.png';
 import Logo from './assets/logo.png';
 
 export const Nav = styled.nav`
-     background-color: ${({theme}) => theme.colors.secondary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      height: ${({theme}) => theme.height.medium};
      position: fixed;
      top: 0;
