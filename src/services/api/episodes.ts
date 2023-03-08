@@ -5,7 +5,7 @@ import { getAuthenticatedToken } from '../storage';
 const BASE_URL = 'http://localhost:8000/episodes';
 
 
-export async function fetchEpisodesList(): Promise<string[]> {
+export async function fetchEpisodesList(): Promise<EpisodesProps[]> {
     const token = getAuthenticatedToken(); // Obtener el token de localStorage
     const response = await fetch(BASE_URL, {
         method: 'GET',
@@ -14,8 +14,6 @@ export async function fetchEpisodesList(): Promise<string[]> {
             'Content-Type': 'application/json',
         },
     });
-    console.log(response);
     const data = await response.json();
-    console.log(data);
     return data
 }
