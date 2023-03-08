@@ -45,34 +45,43 @@ const NavBarBottom: FC = () => {
                     >
                          <BottomNavigationAction
                               label="Episodes"
-                              icon={<PlayArrowIcon fontSize="medium" />}
+                              icon={<PlayArrowIcon fontSize="medium" sx={{ color: '#3fccffff' }} />}
                               value="/episodes"
                               onClick={goToEpisodesPage}
                               sx={{
-                                   color:
-                                        location.pathname === '/episodes' ? theme.palette.secondary.main : theme.palette.primary.main,
+                                   color: location.pathname === '/episodes' ? theme.palette.secondary.main : theme.palette.primary.main,
+                                   '& .MuiBottomNavigationAction-label': {
+                                        color: '#3fccffff', // Aquí puedes especificar el color deseado para el label
+                                   },
                               }}
                          />
                          <BottomNavigationAction
                               label="Characters"
-                              icon={<FavoriteIcon />}
+                              icon={<FavoriteIcon sx={{ color: '#3fccffff' }} />}
                               value="/characters"
                               onClick={goToCharactersPage}
                               sx={{
                                    color:
                                         location.pathname === '/characters' ? theme.palette.secondary.main : theme.palette.primary.main,
+                                   '& .MuiBottomNavigationAction-label': {
+                                        color: '#3fccffff', // Aquí puedes especificar el color deseado para el label
+                                   },
                               }}
                          />
                          <BottomNavigationAction
                               label="Locations"
-                              icon={<LocationOnIcon />}
+                              icon={<LocationOnIcon sx={{ color: '#3fccffff' }} />}
                               value="/locations"
                               onClick={goToLocationsPage}
                               sx={{
                                    color:
                                         location.pathname === '/locations' ? theme.palette.secondary.main : theme.palette.primary.main,
+                                   '& .MuiBottomNavigationAction-label': {
+                                        color: '#3fccffff', // Aquí puedes especificar el color deseado para el label
+                                   },
                               }}
                          />
+
                     </BottomNavigation>
                </Box>
           </NavBarBottomContainer>

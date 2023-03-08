@@ -10,7 +10,6 @@ const useLogic = () => {
      const getAllLocations = useCallback(async () => {
 
           const data = await fetchLocationsList()
-          console.log(data);
           setLocations(data);
 
      }, [])
