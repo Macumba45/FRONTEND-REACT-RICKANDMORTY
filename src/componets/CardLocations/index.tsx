@@ -7,7 +7,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 import Divider from '@mui/material/Divider';
-import { MainContainer } from './styles';
+import { EpisodeBold, MainContainer } from './styles';
 
 const CardLocations: FC = () => {
     const { locations } = useLogic();
@@ -30,7 +30,7 @@ const CardLocations: FC = () => {
                         </ListItemAvatar>
                         <ListItemText
                             primary={[item.name]}
-                            secondary={item.dimension}
+                            secondary={<><EpisodeBold>Dimensions: </EpisodeBold>{item.dimension}</>}
                         />
                     </ListItem>
                     <Divider variant="inset" component="li" />

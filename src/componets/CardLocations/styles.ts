@@ -7,3 +7,10 @@ export const MainContainer = styled.div`
      flex-wrap: wrap;
      margin-bottom: 3rem;
 `;
+
+export const EpisodeBold = styled.span`
+
+font-weight: 800;
+color:#69c8ecff;
+
+`
