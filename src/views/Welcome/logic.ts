@@ -1,16 +1,12 @@
-import { useCallback, useState } from 'react';
-import { fetchAllData } from '../../services/api/fetchDataBase';
+import {useCallback, useState} from 'react';
+import {fetchAllData} from '../../services/api/fetchDataBase';
 
 const useLogic = () => {
+     const syncApi = useCallback(async () => {
+          const data = await fetchAllData();
+          console.log(data);
+     }, []);
 
-    const syncApi = useCallback(async () => {
-
-        const data = await fetchAllData();
-        console.log(data);
-
-
-    }, [])
-
-    return { syncApi };
+     return {syncApi};
 };
 export default useLogic;

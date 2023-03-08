@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useCallback, useState} from 'react';
 
 export const useNavBarLogic = () => {
      const navigate = useNavigate();
@@ -9,7 +9,8 @@ export const useNavBarLogic = () => {
           location.pathname === '/signup' ||
           location.pathname === '/';
 
-     const isLogoutFeed = location.pathname === '/characters' || '/episodes' || '/locations';
+     const isLogoutFeed =
+          location.pathname === '/characters' || '/episodes' || '/locations';
 
      const handleLogout = useCallback(() => {
           // aquí iría la lógica para cerrar sesión del usuario

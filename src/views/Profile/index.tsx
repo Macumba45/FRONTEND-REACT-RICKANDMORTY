@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import NavBar from '../../../src/componets/NavBar';
 import NavBarBottom from '../../componets/NavBarBottom';
 
