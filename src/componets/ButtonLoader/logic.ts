@@ -1,27 +1,26 @@
-import {useCallback, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {fetchAllData} from '../../services/api/fetchDataBase';
+import { useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { fetchAllData } from '../../services/api/fetchDataBase';
 
 const useLogic = () => {
-     const [isLoading, setIsLoading] = useState(false);
-     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
-     const syncApi = useCallback(async () => {
-          const data = await fetchAllData();
-          console.log(data);
-     }, []);
+    const syncApi = useCallback(async () => {
+        await fetchAllData();
+    }, []);
 
-     const handleClick = async () => {
-          setIsLoading(true);
-          await syncApi();
-          navigate('/characters');
+    const handleClick = async () => {
+        setIsLoading(true);
+        await syncApi();
+        navigate('/characters');
 
-          // Aquí iría el código para hacer la petición al servidor
-     };
+        // Aquí iría el código para hacer la petición al servidor
+    };
 
-     return {
-          handleClick,
-          isLoading,
-     };
+    return {
+        handleClick,
+        isLoading,
+    };
 };
 export default useLogic;

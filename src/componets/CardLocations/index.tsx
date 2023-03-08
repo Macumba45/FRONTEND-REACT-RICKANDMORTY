@@ -16,6 +16,7 @@ const CardLocations: FC = () => {
         <MainContainer>
             {locations.map((item) => (
                 <List
+                    key={item.id}
                     sx={{
                         width: '100%',
                         maxWidth: 360,
