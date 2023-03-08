@@ -1,7 +1,24 @@
-import {useCallback, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { fetchLocationsList } from '../../services/api/locations';
+import { LocationProps } from './types';
 
 const useLogic = () => {
-     return {};
+
+     const [locations, setLocations] = useState<LocationProps[]>([]);
+
+     const getAllLocations = useCallback(async () => {
+
+          const data = await fetchLocationsList()
+          console.log(data);
+          setLocations(data);
+
+     }, [])
+
+     useEffect(() => {
+          getAllLocations();
+     }, [getAllLocations]);
+
+     return { locations, getAllLocations };
 };
 export default useLogic;
