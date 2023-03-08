@@ -1,7 +1,16 @@
-import {useCallback, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useCallback, useState } from 'react';
+import { fetchAllData } from '../../services/api/fetchDataBase';
 
 const useLogic = () => {
-     return {};
+
+    const syncApi = useCallback(async () => {
+
+        const data = await fetchAllData();
+        console.log(data);
+
+
+    }, [])
+
+    return { syncApi };
 };
 export default useLogic;
