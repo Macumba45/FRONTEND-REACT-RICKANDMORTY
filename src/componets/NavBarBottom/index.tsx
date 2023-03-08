@@ -1,15 +1,15 @@
-import { FC, memo } from 'react';
-import { useLogic } from './logic';
+import {FC, memo} from 'react';
+import {useLogic} from './logic';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { NavBarBottomContainer } from './styles';
+import {NavBarBottomContainer} from './styles';
 
 const NavBarBottom: FC = () => {
-     const { goToCharactersPage, goToLocationsPage, goToEpisodesPage, location } =
+     const {goToCharactersPage, goToLocationsPage, goToEpisodesPage, location} =
           useLogic();
 
      return (
@@ -26,13 +26,11 @@ const NavBarBottom: FC = () => {
                     <BottomNavigation
                          showLabels
                          value={location.pathname}
-                         sx={{ flex: 1 }}
+                         sx={{flex: 1}}
                     >
-
                          <BottomNavigationAction
                               label="Episodes"
-                              icon={<PlayArrowIcon
-                                   fontSize='medium' />}
+                              icon={<PlayArrowIcon fontSize="medium" />}
                               value="/episodes"
                               onClick={goToEpisodesPage}
                          />
