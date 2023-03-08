@@ -9,7 +9,7 @@ export const useNavBarLogic = () => {
           location.pathname === '/signup' ||
           location.pathname === '/';
 
-     const isLogoutFeed = location.pathname === '/characters';
+     const isLogoutFeed = location.pathname === '/characters' || '/episodes' || '/locations';
 
      const handleLogout = useCallback(() => {
           // aquí iría la lógica para cerrar sesión del usuario
