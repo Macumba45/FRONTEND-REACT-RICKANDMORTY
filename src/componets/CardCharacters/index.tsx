@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, Fragment, memo } from 'react';
 import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
@@ -17,8 +17,8 @@ const CardCharacter: FC<CharacterProps> = () => {
      return (
           <MainContainer>
                {characters.map(character => (
-                    <>
-                         <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
+                    <Fragment key={character.character_id}>
+                         <Card  variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
                               <CardOverflow>
                                    <AspectRatio ratio="1.35">
                                         <img
@@ -50,7 +50,7 @@ const CardCharacter: FC<CharacterProps> = () => {
                                    </Link>
                               </Typography>
                               <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                                   <Link href="#multiple-actions">California</Link>
+                                   <Link href="#multiple-actions">{character.species}</Link>
                               </Typography>
                               <Divider inset="context" />
                               <CardOverflow
@@ -64,15 +64,15 @@ const CardCharacter: FC<CharacterProps> = () => {
                                    }}
                               >
                                    <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
-                                        6.3k views
+                                        {character.status}
                                    </Typography>
                                    <Divider orientation="vertical" />
                                    <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
-                                        1 hour ago
+                                        ID: {character.character_id}
                                    </Typography>
                               </CardOverflow>
                          </Card>
-                    </>
+                    </Fragment>
                )
 
                )}
