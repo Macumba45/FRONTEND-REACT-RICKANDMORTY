@@ -10,6 +10,8 @@ import Episodes from '../views/Episodes';
 import Locations from '../views/Locations';
 import Profile from '../views/Profile';
 import EpisodesDetails from '../views/EpisodesDetails';
+import { Box, Button, Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 const Router: FC = () => {
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -63,10 +65,35 @@ const Router: FC = () => {
         }, [navigate, token]);
 
         return (
-            <div>
-                <h1>404 Not Found</h1>
-                <p>The page you are looking for does not exist.</p>
-            </div>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '100vh'
+                }}
+            >
+                <Container maxWidth="md">
+                    <Grid container spacing={2}>
+                        <Grid xs={6}>
+                            <Typography variant="h1">
+                                404
+                            </Typography>
+                            <Typography variant="h6">
+                                The page you’re looking for doesn’t exist.
+                            </Typography>
+                            <Button href='/login' variant="contained">Back Home</Button>
+                        </Grid>
+                        <Grid xs={6}>
+                            <img
+                                src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
+                                alt=""
+                                width={500} height={250}
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
         );
     };
 
