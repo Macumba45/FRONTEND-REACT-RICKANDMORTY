@@ -109,7 +109,6 @@ const Router: FC = () => {
                 <Route path="/episodes/:id" element={<ProtectedRoutes><EpisodesDetails /></ProtectedRoutes>} />
                 <Route path="/locations" element={<ProtectedRoutes><Locations /></ProtectedRoutes>} />
                 <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
-
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>

@@ -17,6 +17,17 @@ const useLogic = () => {
           getAllLocations();
      }, [getAllLocations]);
 
-     return { locations, getAllLocations };
+     const getLocationsByCategory = useCallback(() => {
+          return locations.reduce((acc: any, curr) => {
+               const category = curr.dimension;
+               if (!acc[category]) {
+                    acc[category] = [];
+               }
+               acc[category].push(curr);
+               return acc;
+          }, {});
+     }, [locations]);
+
+     return { locations, getAllLocations, getLocationsByCategory };
 };
 export default useLogic;

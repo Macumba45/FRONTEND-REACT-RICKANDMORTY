@@ -1,44 +1,46 @@
 import { FC, memo } from 'react';
 import useLogic from './logic';
-import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 import Divider from '@mui/material/Divider';
-import { EpisodeBold, MainContainer } from './styles';
+import { EpisodeBold, MainContainer, StyledList } from './styles';
+import { Typography } from '@mui/material';
 
 const CardLocations: FC = () => {
-    const { locations } = useLogic();
+    const { locations, getLocationsByCategory } = useLogic();
+    const locationsByCategory = getLocationsByCategory();
+
 
     return (
         <MainContainer>
-            {locations.map((item) => (
-                <List
-                    key={item.id}
-                    sx={{
-                        width: '100%',
-                        maxWidth: 360,
-                        bgcolor: 'background.paper',
-                    }}
-                >
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <ImageIcon />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary={[item.name]}
-                            secondary={<><EpisodeBold>Dimensions: </EpisodeBold>{item.dimension}</>}
-                        />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                </List>
+            {Object.entries(locationsByCategory).map(([category, categoryLocations]) => (
+                <div key={category}>
+                    <Typography variant="h6" gutterBottom>
+                        {category}
+                    </Typography>
+                    {Array.isArray(categoryLocations) && categoryLocations.map((item: any) => (
+                        <StyledList key={item.id}>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <ImageIcon />
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={[item.name]}
+                                    secondary={<><EpisodeBold>Dimensions: </EpisodeBold>{item.dimension}</>}
+                                />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                        </StyledList>
+                    ))}
+                </div>
             ))}
         </MainContainer>
     );
-};
+}
 
-export default memo(CardLocations);
+export default memo(CardLocations)
