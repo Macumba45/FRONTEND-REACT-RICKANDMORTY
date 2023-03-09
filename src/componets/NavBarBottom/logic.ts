@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 export const useLogic = () => {
      const navigate = useNavigate();
      const location = useLocation();
-     const isFeedPage = location.pathname === '/feed';
      const [value, setValue] = useState(0);
 
      const goToCharactersPage = useCallback(async () => {
@@ -23,7 +22,7 @@ export const useLogic = () => {
           navigate('/locations');
      }, [navigate]);
 
-    
+
 
      return {
           value,
@@ -32,6 +31,6 @@ export const useLogic = () => {
           goToLocationsPage,
           setValue,
           location,
-          
+
      };
 };

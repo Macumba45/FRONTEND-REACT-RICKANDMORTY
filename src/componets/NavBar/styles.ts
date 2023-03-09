@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import {Link, useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import iconLogin from './assets/icons8-login-rounded-90.png';
 import iconSignUp from './assets/icons8-male-user-96.png';
-import Logo from './assets/logo.png';
 
 export const Nav = styled.nav`
-     background-color: ${({theme}) => theme.colors.tertiary};
-     height: ${({theme}) => theme.height.medium};
+     background-color: ${({ theme }) => theme.colors.tertiary};
+     height: ${({ theme }) => theme.height.medium};
      position: fixed;
      top: 0;
      width: 100%;
@@ -17,8 +16,8 @@ export const Nav = styled.nav`
 `;
 
 export const NavLogged = styled.nav`
-     background-color: ${({theme}) => theme.colors.tertiary};
-     height: ${({theme}) => theme.height.medium};
+     background-color: ${({ theme }) => theme.colors.tertiary};
+     height: ${({ theme }) => theme.height.medium};
      position: fixed;
      top: 0;
      width: 100%;
@@ -33,14 +32,14 @@ export const NavContainerNotLogged = styled.div`
 
 export const NavbarLinkNotLogged = styled(Link)`
      color: white;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.light};
-     margin-right: ${({theme}) => theme.spacing.smallest};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.light};
+     margin-right: ${({ theme }) => theme.spacing.smallest};
      text-decoration: none;
 
      &:hover {
-          font-weight: ${({theme}) => theme.fontWeights.mediumSemiBold};
+          font-weight: ${({ theme }) => theme.fontWeights.mediumSemiBold};
      }
 `;
 
@@ -66,21 +65,21 @@ export const NavContainerLogged = styled.div`
      display: flex;
      align-items: center;
      justify-content: space-between;
-     height: ${({theme}) => theme.height.medium};
+     height: ${({ theme }) => theme.height.medium};
 `;
 
 export const NavbarLinkLogged = styled(Link)`
      color: white;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.light};
-     margin-right: ${({theme}) => theme.spacing.smallest};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.light};
+     margin-right: ${({ theme }) => theme.spacing.smallest};
      text-decoration: none;
      display: flex;
      align-items: center;
 
      &:hover {
-          font-weight: ${({theme}) => theme.fontWeights.mediumSemiBold};
+          font-weight: ${({ theme }) => theme.fontWeights.mediumSemiBold};
      }
 `;
 
@@ -111,12 +110,12 @@ export const IconContainerLogOut = styled.div`
 `;
 
 export const LogoutButton = styled.button`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.light};
-     background-color: ${({theme}) => theme.colors.tertiary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.light};
+     background-color: ${({ theme }) => theme.colors.tertiary};
      border: none;
-     color: ${({theme}) => theme.colors.light};
+     color: ${({ theme }) => theme.colors.light};
      cursor: pointer;
      display: flex;
      align-items: center;
