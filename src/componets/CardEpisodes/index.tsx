@@ -7,25 +7,21 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import StartIcon from '@mui/icons-material/Start';
 import Divider from '@mui/material/Divider';
-import { EpisodeBold, ImgList, MainContainer } from './styles';
+import { EpisodeBold, ImgList, MainContainer, StyledList } from './styles';
 import picture from '../../assets/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_UY1200_CR85,0,630,1200_AL_.jpg';
 
 const CardEpisodes: FC = () => {
 
     const { episodes, goToDetails } = useLogic();
-    
+
     const imageEpisodes = picture;
 
     return (
         <MainContainer>
             {episodes.map((item) => (
-                <List
+                <StyledList
                     key={item.episode_id} // Es importante agregar la prop key para evitar una advertencia de React
-                    sx={{
-                        width: '100%',
-                        maxWidth: 400,
-                        bgcolor: 'background.paper',
-                    }}
+
                 >
                     <ListItem>
                         <ListItemAvatar>
@@ -42,10 +38,11 @@ const CardEpisodes: FC = () => {
                             sx={{
                                 color: '#69c8ecff',
                                 cursor: 'pointer',
+                                marginRight: '1rem'
                             }} />
                     </ListItem>
                     <Divider variant="inset" component="li" />
-                </List>
+                </StyledList>
             ))}
         </MainContainer>
     );
