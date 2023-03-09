@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { CharacterInput } from '../../models/characters';
 import { fetchCharactersList } from '../../services/api/characters';
-import { CharacterProps } from './types';
 
 const useLogic = () => {
      // const navigate = useNavigate();
-     const [characters, setCharacters] = useState<CharacterProps[]>([]);
+     const [characters, setCharacters] = useState<CharacterInput[]>([]);
 
      const getCharacters = useCallback(async () => {
           const data = await fetchCharactersList();
