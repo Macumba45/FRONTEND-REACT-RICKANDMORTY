@@ -2,9 +2,11 @@ import Stack from '@mui/joy/Stack';
 import Button from '@mui/joy/Button';
 import { FC, memo } from 'react';
 import useLogic from './logic';
+import { useNavigate } from 'react-router-dom';
 
 const ButtonLoadingPosition: FC = () => {
-    const { handleClick, isLoading,data } = useLogic();
+    const { handleClick, isLoading } = useLogic();
+
 
     return (
         <Stack

@@ -2,7 +2,7 @@ import { getAuthenticatedToken } from '../storage';
 
 const BASE_URL = 'http://localhost:8000/syncApi/';
 
-export async function fetchAllData(): Promise<string[]> {
+export async function fetchAllData(): Promise<boolean> {
     const token = getAuthenticatedToken(); // Obtener el token de localStorage
     const response = await fetch(BASE_URL, {
         method: 'GET',

@@ -35,7 +35,7 @@ const Router: FC = () => {
             ) {
                 return (
                     <Navigate
-                        to="/feed"
+                        to="/characters"
                         replace
                         state={{
                             from: location,
@@ -73,15 +73,15 @@ const Router: FC = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/welcome" element={<Welcome />} />
-                <Route path="/characters" element={<Characters />} />
-                <Route path="/episodes" element={<Episodes />} />
-                <Route path="/episodes/:id" element={<EpisodesDetails />} />
-                <Route path="/locations" element={<Locations />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/" element={<PublicRoute><Login /></PublicRoute>} />
+                <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+                <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
+                <Route path="/welcome" element={<ProtectedRoutes><Welcome /></ProtectedRoutes>} />
+                <Route path="/characters" element={<ProtectedRoutes><Characters /></ProtectedRoutes>} />
+                <Route path="/episodes" element={<ProtectedRoutes><Episodes /></ProtectedRoutes>} />
+                <Route path="/episodes/:id" element={<ProtectedRoutes><EpisodesDetails /></ProtectedRoutes>} />
+                <Route path="/locations" element={<ProtectedRoutes><Locations /></ProtectedRoutes>} />
+                <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
 
                 <Route path="*" element={<NotFound />} />
             </Routes>
