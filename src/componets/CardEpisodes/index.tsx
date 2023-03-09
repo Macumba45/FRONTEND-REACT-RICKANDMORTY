@@ -5,14 +5,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import ImageIcon from '@mui/icons-material/Image';
+import StartIcon from '@mui/icons-material/Start';
 import Divider from '@mui/material/Divider';
 import { EpisodeBold, ImgList, MainContainer } from './styles';
 import picture from '../../assets/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_UY1200_CR85,0,630,1200_AL_.jpg';
 
 const CardEpisodes: FC = () => {
 
-    const { episodes } = useLogic();
+    const { episodes, goToDetails } = useLogic();
+    
     const imageEpisodes = picture;
 
     return (
@@ -36,6 +37,12 @@ const CardEpisodes: FC = () => {
                             primary={item.name}
                             secondary={<><EpisodeBold>Episode: </EpisodeBold>{item.episode}</>}
                         />
+                        <StartIcon
+                            onClick={() => goToDetails(item.id)}
+                            sx={{
+                                color: '#69c8ecff',
+                                cursor: 'pointer',
+                            }} />
                     </ListItem>
                     <Divider variant="inset" component="li" />
                 </List>

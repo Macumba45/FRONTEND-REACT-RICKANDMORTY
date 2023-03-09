@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { fetchLocationsList } from '../../services/api/locations';
 import { LocationProps } from './types';
 

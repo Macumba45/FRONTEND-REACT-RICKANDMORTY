@@ -4,23 +4,31 @@ import { fetchAllData } from '../../services/api/fetchDataBase';
 
 const useLogic = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState<string[]>([]);
+    console.log(data)
+
     const navigate = useNavigate();
 
     const syncApi = useCallback(async () => {
-        await fetchAllData();
+        setIsLoading(true);
+        const apiData = await fetchAllData();
+        setData(apiData);
+        setIsLoading(false);
     }, []);
 
     const handleClick = async () => {
         setIsLoading(true);
-        await syncApi();
+        if (data?.length === 0) {
+            await syncApi();
+        }
+        setIsLoading(false);
         navigate('/characters');
-
-        // Aquí iría el código para hacer la petición al servidor
     };
 
     return {
         handleClick,
         isLoading,
+        data
     };
 };
 export default useLogic;

@@ -1,5 +1,5 @@
-import {useLocation, useNavigate} from 'react-router-dom';
-import {useCallback, useState} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCallback, useState } from 'react';
 
 export const useNavBarLogic = () => {
      const navigate = useNavigate();
@@ -12,6 +12,8 @@ export const useNavBarLogic = () => {
      const isLogoutFeed =
           location.pathname === '/characters' || '/episodes' || '/locations';
 
+     const isEpisodePage = location.pathname.startsWith('/episodes/');
+
      const handleLogout = useCallback(() => {
           // aquí iría la lógica para cerrar sesión del usuario
           window.localStorage.clear();
@@ -19,10 +21,14 @@ export const useNavBarLogic = () => {
      }, [navigate]);
 
      const handleBackPage = useCallback(() => {
+
           if (location.pathname.startsWith('/profile')) {
                navigate('/characters');
           }
-     }, []);
+          if (location.pathname.startsWith('/episodes')) {
+               navigate('/episodes');
+          }
+     }, [location.pathname, navigate]);
 
      const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
@@ -45,5 +51,6 @@ export const useNavBarLogic = () => {
           anchorEl,
           handleMenuOpen,
           handleMenuClose,
+          isEpisodePage
      };
 };
