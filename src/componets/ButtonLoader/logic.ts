@@ -1,6 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchAllData } from '../../services/api/fetchDataBase';
+
 
 const useLogic = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +24,13 @@ const useLogic = () => {
         setIsLoading(false);
         navigate('/characters');
     };
+
+    useEffect(() => {
+        if (localStorage.getItem('isSync')) {
+            navigate('/characters');
+        }
+    }, [navigate]);
+
 
     return {
         handleClick,
