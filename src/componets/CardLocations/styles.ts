@@ -21,7 +21,7 @@ export const MainContainer = styled.div`
 
 export const StyledList = styled(List)`
   width: 100%;
-  width: 400px;
+  width: 280px;
   background-color: white;
 
   @media screen and (min-width: 600px) {
