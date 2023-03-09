@@ -6,6 +6,7 @@ import { getAuthenticatedToken } from '../services/storage';
 import SignUp from '../views/auth/SignUp';
 import Welcome from '../views/Welcome';
 import Characters from '../views/Characters';
+import CharactersDetails from '../views/CharacterDetails';
 import Episodes from '../views/Episodes';
 import Locations from '../views/Locations';
 import Profile from '../views/Profile';
@@ -105,6 +106,7 @@ const Router: FC = () => {
                 <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
                 <Route path="/welcome" element={<ProtectedRoutes><Welcome /></ProtectedRoutes>} />
                 <Route path="/characters" element={<ProtectedRoutes><Characters /></ProtectedRoutes>} />
+                <Route path="/characters/:id" element={<ProtectedRoutes><CharactersDetails /></ProtectedRoutes>} />
                 <Route path="/episodes" element={<ProtectedRoutes><Episodes /></ProtectedRoutes>} />
                 <Route path="/episodes/:id" element={<ProtectedRoutes><EpisodesDetails /></ProtectedRoutes>} />
                 <Route path="/locations" element={<ProtectedRoutes><Locations /></ProtectedRoutes>} />

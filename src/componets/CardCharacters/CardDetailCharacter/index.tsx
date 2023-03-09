@@ -10,10 +10,10 @@ import StartIcon from '@mui/icons-material/Start';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
 import { MainContainer } from './styles';
-import { CharacterProps } from './types';
+import { CharacterProps } from '../types';
 import useLogic from './logic';
 
-const CardCharacter: FC<CharacterProps> = () => {
+const CardCharacterDetail: FC<CharacterProps> = () => {
      const { characters,goToDetails } = useLogic();
      return (
           <MainContainer>
@@ -86,4 +86,4 @@ const CardCharacter: FC<CharacterProps> = () => {
      );
 };
 
-export default memo(CardCharacter);
+export default memo(CardCharacterDetail);

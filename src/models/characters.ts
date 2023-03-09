@@ -8,7 +8,6 @@ export type CharacterInput = {
     species: string;
     image: string;
     createdAt: Date;
-    updatedAt: Date;
 };
 
 export const normalizeCharacter = (input: CharacterResponse) => {
@@ -20,6 +19,5 @@ export const normalizeCharacter = (input: CharacterResponse) => {
         species: input?.species || '',
         image: input?.image || '',
         createdAt: input?.createdAt || Date(),
-        updatedAt: input?.updatedAt || Date(),
     }
 };

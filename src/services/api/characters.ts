@@ -29,3 +29,16 @@ export async function fetchCharactersList() {
     const data: CharacterResponse[] = await response.json();
     return data.map(normalizeCharacter);
 }
+
+export async function fetchCharacter(id :string) {
+    const token = getAuthenticatedToken(); 
+    const response = await fetch(`${BASE_URL}/${id}`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${token}`, 
+            'Content-Type': 'application/json',
+        },
+    });
+    const data: CharacterResponse = await response.json();
+    return normalizeCharacter(data);
+}
