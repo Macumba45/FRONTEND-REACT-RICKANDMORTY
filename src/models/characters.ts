@@ -1,1 +1,3 @@
-export const normalizeData = (input: any) => {};
+export const normalizeData = (input: any) => {
+    
+};
