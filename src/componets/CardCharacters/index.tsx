@@ -13,72 +13,72 @@ import { CharacterProps } from './types';
 import useLogic from './logic';
 
 const CardCharacter: FC<CharacterProps> = () => {
-     const { characters } = useLogic();
-     return (
-          <MainContainer>
-               {characters.map(character => (
-                    <Fragment key={character.character_id}>
-                         <Card  variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
-                              <CardOverflow>
-                                   <AspectRatio ratio="1.35">
-                                        <img
-                                             src={character.image}
-                                             srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
-                                             loading="lazy"
-                                             alt=""
-                                        />
-                                   </AspectRatio>
-                                   <IconButton
-                                        aria-label="Like minimal photography"
-                                        size="md"
-                                        variant="solid"
-                                        sx={{
-                                             position: 'absolute',
-                                             zIndex: 2,
-                                             borderRadius: '50%',
-                                             right: '1rem',
-                                             bottom: 0,
-                                             transform: 'translateY(50%)',
-                                        }}
-                                   >
-                                        <Favorite />
-                                   </IconButton>
-                              </CardOverflow>
-                              <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
-                                   <Link href="#multiple-actions" overlay underline="none">
-                                        {character.name}
-                                   </Link>
-                              </Typography>
-                              <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                                   <Link href="#multiple-actions">{character.species}</Link>
-                              </Typography>
-                              <Divider inset="context" />
-                              <CardOverflow
-                                   variant="soft"
-                                   sx={{
-                                        display: 'flex',
-                                        gap: 1.5,
-                                        py: 1.5,
-                                        px: 'var(--Card-padding)',
-                                        bgcolor: 'background.level1',
-                                   }}
-                              >
-                                   <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
-                                        {character.status}
-                                   </Typography>
-                                   <Divider orientation="vertical" />
-                                   <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
-                                        ID: {character.character_id}
-                                   </Typography>
-                              </CardOverflow>
-                         </Card>
-                    </Fragment>
-               )
+    const { characters } = useLogic();
+    return (
+        <MainContainer>
+            {characters.map(character => (
+                <Fragment key={character.character_id}>
+                    <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around', marginRight: 2, marginLeft: 2 }}>
+                        <CardOverflow>
+                            <AspectRatio ratio="1.35">
+                                <img
+                                    src={character.image}
+                                    srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
+                                    loading="lazy"
+                                    alt=""
+                                />
+                            </AspectRatio>
+                            <IconButton
+                                aria-label="Like minimal photography"
+                                size="md"
+                                variant="solid"
+                                sx={{
+                                    position: 'absolute',
+                                    zIndex: 2,
+                                    borderRadius: '50%',
+                                    right: '1rem',
+                                    bottom: 0,
+                                    transform: 'translateY(50%)',
+                                }}
+                            >
+                                <Favorite />
+                            </IconButton>
+                        </CardOverflow>
+                        <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
+                            <Link href="#multiple-actions" overlay underline="none">
+                                {character.name}
+                            </Link>
+                        </Typography>
+                        <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
+                            <Link href="#multiple-actions">{character.species}</Link>
+                        </Typography>
+                        <Divider inset="context" />
+                        <CardOverflow
+                            variant="soft"
+                            sx={{
+                                display: 'flex',
+                                gap: 1.5,
+                                py: 1.5,
+                                px: 'var(--Card-padding)',
+                                bgcolor: 'background.level1',
+                            }}
+                        >
+                            <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
+                                {character.status}
+                            </Typography>
+                            <Divider orientation="vertical" />
+                            <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
+                                ID: {character.character_id}
+                            </Typography>
+                        </CardOverflow>
+                    </Card>
+                </Fragment>
+            )
 
-               )}
-          </MainContainer >
+            )}
+        </MainContainer >
 
-     );
+    );
 };
 
 export default memo(CardCharacter);
