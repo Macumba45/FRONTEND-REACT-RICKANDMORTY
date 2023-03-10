@@ -1,3 +1,4 @@
+import { VariantProp } from '@mui/joy';
 import { useCallback, useEffect, useState } from 'react';
 import { fetchLocationsList } from '../../services/api/locations';
 import { LocationProps } from './types';
@@ -5,11 +6,19 @@ import { LocationProps } from './types';
 const useLogic = () => {
 
      const [locations, setLocations] = useState<LocationProps[]>([]);
+     const [variante, setVariante] = useState(true);
+     const [variant] = useState<VariantProp>('soft');
+
+
 
      const getAllLocations = useCallback(async () => {
-
-          const data = await fetchLocationsList()
+          setVariante(true)
+          const data = await fetchLocationsList();
           setLocations(data);
+          setTimeout(() => {
+               setVariante(false)
+          }, 2000);
+
 
      }, [])
 
@@ -28,6 +37,6 @@ const useLogic = () => {
           }, {});
      }, [locations]);
 
-     return { locations, getAllLocations, getLocationsByCategory };
+     return { locations, getAllLocations, getLocationsByCategory, variante, variant };
 };
 export default useLogic;
