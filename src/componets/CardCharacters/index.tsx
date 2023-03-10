@@ -5,7 +5,7 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
-import StartIcon from '@mui/icons-material/Start';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
 import { MainContainer, StatusCHaracter } from './styles';
@@ -13,7 +13,7 @@ import { CharacterProps } from './types';
 import useLogic from './logic';
 
 const CardCharacter: FC<CharacterProps> = () => {
-    const { characters } = useLogic();
+    const { characters, goToDetails } = useLogic();
     return (
         <MainContainer>
             {characters.map((character) => (
@@ -117,6 +117,18 @@ const CardCharacter: FC<CharacterProps> = () => {
                             >
                                 ID: {character.character_id}
                             </Typography>
+                            <ArrowForwardIosIcon
+                                onClick={() =>
+                                    goToDetails(
+                                        character.id
+                                    )
+                                }
+                                sx={{
+                                    color: '#69c8ecff',
+                                    cursor: 'pointer',
+                                    marginRight: '1rem',
+                                }}
+                            />
                         </CardOverflow>
                     </Card>
                 </Fragment>

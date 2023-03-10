@@ -7,6 +7,10 @@ const useLogic = () => {
      const navigate = useNavigate();
      const [characters, setCharacters] = useState<CharacterInput[]>([]);
 
+     const goToDetails = useCallback((id: string) => {
+          navigate(`/characters/${id}`);
+     }, [navigate]);
+
      const getCharacters = useCallback(async () => {
           const data = await fetchCharactersList();
           setCharacters(data);
@@ -19,6 +23,7 @@ const useLogic = () => {
 
      return {
           getAllcharacters: getCharacters,
+          goToDetails,
           characters
      };
 };
