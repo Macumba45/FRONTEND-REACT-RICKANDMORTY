@@ -1,5 +1,5 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCallback, useState } from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useCallback, useState} from 'react';
 
 export const useNavBarLogic = () => {
      const navigate = useNavigate();
@@ -20,11 +20,11 @@ export const useNavBarLogic = () => {
                if (key !== 'isSync') {
                     localStorage.removeItem(key);
                }
-          }); navigate('/login');
+          });
+          navigate('/login');
      }, [navigate]);
 
      const handleBackPage = useCallback(() => {
-
           if (location.pathname.startsWith('/profile')) {
                navigate('/characters');
           }
@@ -54,6 +54,6 @@ export const useNavBarLogic = () => {
           anchorEl,
           handleMenuOpen,
           handleMenuClose,
-          isEpisodePage
+          isEpisodePage,
      };
 };

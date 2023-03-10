@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { List } from '@mui/material';
+import {List} from '@mui/material';
 
 export const MainContainer = styled.div`
      display: flex;
@@ -10,37 +10,30 @@ export const MainContainer = styled.div`
      margin-left: 2rem;
 
      @media screen and (min-width: 600px) {
-
-        /* justify-content: center; */
-        
+          /* justify-content: center; */
      }
 `;
 
 export const MainContainerLoader = styled.div`
      display: flex;
      margin-top: 5rem;
-justify-content:center;
+     justify-content: center;
      margin-bottom: 5rem;
 
      @media screen and (min-width: 600px) {
-
-        /* justify-content: center; */
-        
+          /* justify-content: center; */
      }
 `;
 
-
-
-
 export const StyledList = styled(List)`
-  width: 100%;
-  width: 400px;
-  background-color: white;
+     width: 100%;
+     width: 400px;
+     background-color: white;
 
-  @media screen and (min-width: 600px) {
-    width: 100%;
-    height: 100px;
-  }
+     @media screen and (min-width: 600px) {
+          width: 100%;
+          height: 100px;
+     }
 `;
 
 export const ImgList = styled.img`
@@ -49,14 +42,8 @@ export const ImgList = styled.img`
 `;
 
 export const EpisodeBold = styled.span`
-
-font-weight: 800;
-color:#69c8ecff;
-
-`
-
-
-export const Container = styled.div`
-   
+     font-weight: 800;
+     color: #69c8ecff;
 `;
 
+export const Container = styled.div``;

@@ -1,6 +1,5 @@
-import { useCallback, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-
+import {useCallback, useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 export const useLogic = () => {
      const navigate = useNavigate();
@@ -22,8 +21,6 @@ export const useLogic = () => {
           navigate('/locations');
      }, [navigate]);
 
-
-
      return {
           value,
           goToEpisodesPage,
@@ -31,6 +28,5 @@ export const useLogic = () => {
           goToLocationsPage,
           setValue,
           location,
-
      };
 };
