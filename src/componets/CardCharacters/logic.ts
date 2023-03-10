@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { CharacterInput } from '../../models/characters';
-import { fetchCharactersList } from '../../services/api/characters';
+import {useCallback, useEffect, useState} from 'react';
+import {CharacterInput} from '../../models/characters';
+import {fetchCharactersList} from '../../services/api/characters';
 
 const useLogic = () => {
      // const navigate = useNavigate();
@@ -11,14 +11,13 @@ const useLogic = () => {
           setCharacters(data);
      }, []);
 
-
      useEffect(() => {
           getCharacters();
      }, [getCharacters]);
 
      return {
           getAllcharacters: getCharacters,
-          characters
+          characters,
      };
 };
 export default useLogic;
