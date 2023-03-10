@@ -7,20 +7,61 @@ import Avatar from '@mui/material/Avatar';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import picture from '../../assets/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_UY1200_CR85,0,630,1200_AL_.jpg';
 import { Accordion, AccordionDetails, AccordionSummary, List, Typography } from '@mui/material';
-import { ExpandMore as ExpandMoreIcon, Star as StarIcon } from '@mui/icons-material';
+import LinearProgress from '@mui/joy/LinearProgress';
+import Box from '@mui/joy/Box';
+import Sheet from '@mui/joy/Sheet';
+import Stack from '@mui/joy/Stack';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { EpisodeBold, ImgList, MainContainer } from './styles';
 
 
 const CardEpisodes: FC = () => {
-    const { episodesBySeason, goToDetails } = useLogic();
+    const { episodesBySeason, goToDetails, variante, variant } = useLogic();
     const imageEpisodes = picture;
+
+    if (variante) {
+
+        return (
+            <MainContainer>
+                <Box
+                    sx={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 3,
+                        marginTop: 15,
+                    }}
+                >
+                    <Stack spacing={4} sx={{ flex: 1 }}>
+                        <LinearProgress color="primary" variant={variant} />
+                        <LinearProgress color="neutral" variant={variant} />
+                        <LinearProgress color="danger" variant={variant} />
+                        <LinearProgress color="info" variant={variant} />
+                        <LinearProgress color="success" variant={variant} />
+                        <LinearProgress color="warning" variant={variant} />
+                    </Stack>
+                    <Sheet
+                        sx={{
+                            background: 'transparent',
+                            pl: 4,
+                            borderLeft: '1px solid',
+                            borderColor: 'divider',
+                        }}
+                    >
+                    </Sheet>
+                </Box>
+            </MainContainer>
+        );
+
+
+    }
 
     return (
         <MainContainer>
             {Object.entries(episodesBySeason).map(([season, seasonEpisodes]) => (
                 <Accordion key={season} sx={{ marginBottom: 2, marginRight: 2 }}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} >
-                        <Typography color='#69c8ecff' variant="h6">Season {season}</Typography>
+                        <Typography color='#010202ff' variant="h6">Season {season}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <List >

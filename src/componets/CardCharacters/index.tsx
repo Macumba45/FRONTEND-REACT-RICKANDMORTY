@@ -1,5 +1,4 @@
 import { FC, Fragment, memo } from 'react';
-import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
 import CardOverflow from '@mui/joy/CardOverflow';
@@ -8,7 +7,7 @@ import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
-import { MainContainer } from './styles';
+import { MainContainer, StatusCHaracter } from './styles';
 import { CharacterProps } from './types';
 import useLogic from './logic';
 
@@ -39,18 +38,19 @@ const CardCharacter: FC<CharacterProps> = () => {
                                     right: '1rem',
                                     bottom: 0,
                                     transform: 'translateY(50%)',
+                                    backgroundColor: '#69c8ecff'
                                 }}
                             >
                                 <Favorite />
                             </IconButton>
                         </CardOverflow>
                         <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
-                            <Link href="#multiple-actions" overlay underline="none">
+                            <Link href="#multiple-actions" overlay underline="none" sx={{ color: '#69c8ecff' }}>
                                 {character.name}
                             </Link>
                         </Typography>
                         <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                            <Link href="#multiple-actions">{character.species}</Link>
+                            <Link href="#multiple-actions" sx={{ color: '#69c8ecff' }}>{character.species}</Link>
                         </Typography>
                         <Divider inset="context" />
                         <CardOverflow
@@ -63,7 +63,13 @@ const CardCharacter: FC<CharacterProps> = () => {
                                 bgcolor: 'background.level1',
                             }}
                         >
-                            <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
+                            <Typography level="body3" sx={{ fontWeight: 'md', display: 'flex', alignItems: 'center' }}>
+                                <StatusCHaracter
+                                    style={{
+
+                                        backgroundColor: character.status === 'Dead' ? 'red' : 'green'
+                                    }}
+                                />
                                 {character.status}
                             </Typography>
                             <Divider orientation="vertical" />

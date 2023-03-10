@@ -13,3 +13,14 @@ export const MainContainer = styled.div`
     flex-wrap: wrap;
     gap: 2rem;
 `;
+
+
+export const StatusCHaracter = styled.span`
+
+width: 10px;
+                                        height: 10px;
+                                        border-radius: 50%;
+                                        margin-right: 5px;
+                                        
+
+`

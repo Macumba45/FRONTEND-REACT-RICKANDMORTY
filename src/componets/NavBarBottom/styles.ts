@@ -7,4 +7,5 @@ export const NavBarBottomContainer = styled.div`
      position: fixed;
      bottom: 0;
      height: 56px;
+     z-index: 4;
 `;

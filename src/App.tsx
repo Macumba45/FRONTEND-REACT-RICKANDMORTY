@@ -4,7 +4,6 @@ import Router from './router';
 import { Reset } from 'styled-reset';
 
 function App() {
-     // localStorage.clear();
 
      return (
           <ThemeProvider theme={theme}>
