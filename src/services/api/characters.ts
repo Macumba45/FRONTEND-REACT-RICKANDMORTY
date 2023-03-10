@@ -1,9 +1,7 @@
-import {
-    CharacterInput,
-    normalizeSpecies,
-    normalizeCharacter,
-} from "../../models/characters";
 import { getAuthenticatedToken } from '../storage';
+import { CharacterInput, normalizeCharacter } from '../../models/characters';
+
+
 
 const BASE_URL = 'http://localhost:8000/characters';
 
@@ -22,11 +20,11 @@ export type CharacterSpecieResponse = {
 };
 
 export async function fetchCharactersList() {
-    const token = getAuthenticatedToken(); 
+    const token = getAuthenticatedToken();
     const response = await fetch(BASE_URL, {
         method: 'GET',
         headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
     });
@@ -47,15 +45,16 @@ export async function fetchCharactersList() {
 //     return data.map(normalizeSpecies);
 // }
 
-export async function fetchCharacter(id :string) {
-    const token = getAuthenticatedToken(); 
+export async function fetchCharacter(id: string) {
+    const token = getAuthenticatedToken();
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: 'GET',
         headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
         },
     });
     const data: CharacterResponse = await response.json();
     return normalizeCharacter(data);
 }
+

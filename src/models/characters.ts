@@ -1,4 +1,4 @@
-import { CharacterResponse } from "../services/api/characters";
+import {CharacterResponse} from '../services/api/characters';
 
 export type CharacterInput = {
     id: string;

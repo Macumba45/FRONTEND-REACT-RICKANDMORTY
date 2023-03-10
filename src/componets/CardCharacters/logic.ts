@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CharacterInput } from '../../models/characters';
-import { fetchCharactersList, fetchCharacter } from '../../services/api/characters';
+import { fetchCharactersList } from '../../services/api/characters';
 
 const useLogic = () => {
      const navigate = useNavigate();
@@ -12,17 +12,13 @@ const useLogic = () => {
           setCharacters(data);
      }, []);
 
-     const goToDetails = (id: string) => {
-          fetchCharacter(id)
-          navigate(`/characters/${id}`);
-     }
+
      useEffect(() => {
           getCharacters();
      }, [getCharacters]);
 
      return {
           getAllcharacters: getCharacters,
-          goToDetails,
           characters
      };
 };

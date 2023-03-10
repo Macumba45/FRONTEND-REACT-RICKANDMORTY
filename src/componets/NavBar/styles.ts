@@ -4,7 +4,7 @@ import iconLogin from './assets/icons8-login-rounded-90.png';
 import iconSignUp from './assets/icons8-male-user-96.png';
 
 export const Nav = styled.nav`
-     background-color: ${({ theme }) => theme.colors.tertiary};
+     background-color: rgba 60, 60, 60;
      height: ${({ theme }) => theme.height.medium};
      position: fixed;
      top: 0;
