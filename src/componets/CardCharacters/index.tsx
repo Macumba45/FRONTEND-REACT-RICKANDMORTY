@@ -19,12 +19,11 @@ const CardCharacter: FC<CharacterProps> = () => {
           <MainContainer>
                {characters.map(character => (
                     <Fragment key={character.character_id}>
-                         <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
+                         <Card variant="outlined" sx={{ width: 220, height: 400, display: 'flex', justifyContent: 'space-around' }}>
                               <CardOverflow>
                                    <AspectRatio ratio="1.35">
                                         <img
                                              src={character.image}
-                                             srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
                                              loading="lazy"
                                              alt=""
                                         />

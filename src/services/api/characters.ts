@@ -1,5 +1,6 @@
 import {
     CharacterInput,
+    normalizeSpecies,
     normalizeCharacter,
 } from "../../models/characters";
 import { getAuthenticatedToken } from '../storage';
@@ -16,6 +17,9 @@ export type CharacterResponse = {
     createdAt: Date;
     updatedAt: Date;
 };
+export type CharacterSpecieResponse = {
+    species: string;
+};
 
 export async function fetchCharactersList() {
     const token = getAuthenticatedToken(); 
@@ -29,6 +33,19 @@ export async function fetchCharactersList() {
     const data: CharacterResponse[] = await response.json();
     return data.map(normalizeCharacter);
 }
+
+// export async function fetchCharactersSpecie() {
+//     const token = getAuthenticatedToken(); 
+//     const response = await fetch(`${BASE_URL}/species`, {
+//         method: 'GET',
+//         headers: {
+//             Authorization: `Bearer ${token}`, 
+//             'Content-Type': 'application/json',
+//         },
+//     });
+//     const data: CharacterSpecieResponse[] = await response.json();
+//     return data.map(normalizeSpecies);
+// }
 
 export async function fetchCharacter(id :string) {
     const token = getAuthenticatedToken(); 

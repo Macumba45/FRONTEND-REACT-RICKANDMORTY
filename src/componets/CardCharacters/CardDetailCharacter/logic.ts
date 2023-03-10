@@ -1,29 +1,29 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CharacterInput } from '../../../models/characters';
-import { fetchCharactersList, fetchCharacter } from '../../../services/api/characters';
+import { fetchCharacter } from '../../../services/api/characters';
 
 const useLogic = () => {
      const navigate = useNavigate();
-     const [characters, setCharacters] = useState<CharacterInput[]>([]);
+     const [character, setCharacters] = useState<CharacterInput>();
+     const { id } = useParams<{ id: string }>();
 
-     const getCharacters = useCallback(async () => {
-          const data = await fetchCharactersList();
+     const getCharacterDetail = useCallback(async () => {
+          const data = await fetchCharacter(id!);
           setCharacters(data);
-     }, []);
+     }, [id]);
 
-     const goToDetails = (id: string) => {
-          fetchCharacter(id)
-          navigate(`/characters/${id}`);
+     const goToCharactersList = () => {
+          navigate(`/characters`);
      }
      useEffect(() => {
-          getCharacters();
-     }, [getCharacters]);
+          getCharacterDetail();
+     }, [getCharacterDetail]);
 
      return {
-          getAllcharacters: getCharacters,
-          goToDetails,
-          characters
+          getCharacterDetail,
+          goToCharactersList,
+          character
      };
 };
 export default useLogic;

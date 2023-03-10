@@ -1,4 +1,4 @@
-import { FC, Fragment, memo } from 'react';
+import { FC, memo } from 'react';
 import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Card from '@mui/joy/Card';
@@ -9,22 +9,19 @@ import IconButton from '@mui/joy/IconButton';
 import StartIcon from '@mui/icons-material/Start';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
-import { MainContainer } from './styles';
+import { MainContainerDetail } from '../styles';
 import { CharacterProps } from '../types';
 import useLogic from './logic';
 
 const CardCharacterDetail: FC<CharacterProps> = () => {
-     const { characters,goToDetails } = useLogic();
+     const { character,goToCharactersList } = useLogic();
      return (
-          <MainContainer>
-               {characters.map(character => (
-                    <Fragment key={character.character_id}>
+          <MainContainerDetail>
                          <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
                               <CardOverflow>
                                    <AspectRatio ratio="1.35">
                                         <img
-                                             src={character.image}
-                                             srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
+                                             src={character?.image}
                                              loading="lazy"
                                              alt=""
                                         />
@@ -47,11 +44,11 @@ const CardCharacterDetail: FC<CharacterProps> = () => {
                               </CardOverflow>
                               <Typography level="h2" sx={{ fontSize: 'md', mt: 2 }}>
                                    <Link href="#multiple-actions" overlay underline="none">
-                                        {character.name}
+                                        {character?.name}
                                    </Link>
                               </Typography>
                               <Typography level="body2" sx={{ mt: 0.5, mb: 2 }}>
-                                   <Link href="#multiple-actions">{character.species}</Link>
+                                   <Link href="#multiple-actions">{character?.species}</Link>
                               </Typography>
                               <Divider inset="context" />
                               <CardOverflow
@@ -65,11 +62,11 @@ const CardCharacterDetail: FC<CharacterProps> = () => {
                                    }}
                               >
                                    <Typography level="body3" sx={{ fontWeight: 'md', color: 'text.secondary' }}>
-                                        Status: {character.status}
+                                        Status: {character?.status}
                                    </Typography>
                                    <Divider orientation="vertical" />
                                    <StartIcon
-                                        onClick={() => goToDetails(character.id)}
+                                        onClick={() => goToCharactersList()}
                                         sx={{
                                              color: '#69c8ecff',
                                              cursor: 'pointer',
@@ -77,12 +74,7 @@ const CardCharacterDetail: FC<CharacterProps> = () => {
                                         }} />
                               </CardOverflow>
                          </Card>
-                    </Fragment>
-               )
-
-               )}
-          </MainContainer >
-
+          </MainContainerDetail >
      );
 };
 

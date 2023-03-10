@@ -10,6 +10,7 @@ export type CharacterInput = {
     createdAt: Date;
 };
 
+
 export const normalizeCharacter = (input: CharacterResponse) => {
     return {
         id: input?.id || '',
@@ -19,5 +20,11 @@ export const normalizeCharacter = (input: CharacterResponse) => {
         species: input?.species || '',
         image: input?.image || '',
         createdAt: input?.createdAt || Date(),
+    }
+};
+
+export const normalizeSpecies = (input: CharacterResponse) => {
+    return {
+        species: input?.species || '',
     }
 };
