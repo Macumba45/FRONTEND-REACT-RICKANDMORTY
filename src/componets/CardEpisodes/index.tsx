@@ -9,40 +9,46 @@ import StartIcon from '@mui/icons-material/Start';
 import Divider from '@mui/material/Divider';
 import { EpisodeBold, ImgList, MainContainer, StyledList } from './styles';
 import picture from '../../assets/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_UY1200_CR85,0,630,1200_AL_.jpg';
+import { Typography } from '@mui/material';
 
 const CardEpisodes: FC = () => {
-
-    const { episodes, goToDetails } = useLogic();
-
+    const { episodesBySeason, goToDetails } = useLogic();
     const imageEpisodes = picture;
 
     return (
         <MainContainer>
-            {episodes.map((item) => (
-                <StyledList
-                    key={item.episode_id} // Es importante agregar la prop key para evitar una advertencia de React
-
-                >
-                    <ListItem>
-                        <ListItemAvatar>
-                            <Avatar>
-                                <ImgList src={imageEpisodes} alt="" />
-                            </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary={item.name}
-                            secondary={<><EpisodeBold>Episode: </EpisodeBold>{item.episode}</>}
-                        />
-                        <StartIcon
-                            onClick={() => goToDetails(item.id)}
-                            sx={{
-                                color: '#69c8ecff',
-                                cursor: 'pointer',
-                                marginRight: '1rem'
-                            }} />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                </StyledList>
+            {Object.entries(episodesBySeason).map(([season, seasonEpisodes]) => (
+                <div key={season}>
+                    <Typography variant="h6" gutterBottom>
+                        Season {season}
+                    </Typography>
+                    {seasonEpisodes?.map((episode:any) => (
+                        <StyledList
+                            key={episode.episode_id}
+                        >
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar>
+                                        <ImgList src={imageEpisodes} alt="" />
+                                    </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={episode.name}
+                                    secondary={<><EpisodeBold>Episode: </EpisodeBold>{episode.episode}</>}
+                                />
+                                <StartIcon
+                                    onClick={() => goToDetails(episode.id)}
+                                    sx={{
+                                        color: '#69c8ecff',
+                                        cursor: 'pointer',
+                                        marginRight: '1rem'
+                                    }}
+                                />
+                            </ListItem>
+                            <Divider variant="inset" component="li" />
+                        </StyledList>
+                    ))}
+                </div>
             ))}
         </MainContainer>
     );
