@@ -13,6 +13,18 @@ export const MainContainer = styled.div`
      gap: 2rem;
 `;
 
+export const MainContainerDetail = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 5rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+`;
+
 export const StatusCHaracter = styled.span`
      width: 10px;
      height: 10px;

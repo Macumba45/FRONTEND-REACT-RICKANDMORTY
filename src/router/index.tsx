@@ -1,31 +1,32 @@
-import {Navigate, useLocation, useNavigate} from 'react-router-dom';
-import {FC, memo, useEffect} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { FC, memo, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from '../views/auth/Login';
-import {getAuthenticatedToken} from '../services/storage';
+import { getAuthenticatedToken } from '../services/storage';
 import SignUp from '../views/auth/SignUp';
 import Welcome from '../views/Welcome';
 import Characters from '../views/Characters';
+import CharactersDetails from '../views/CharacterDetails';
 import Episodes from '../views/Episodes';
 import Locations from '../views/Locations';
 import Profile from '../views/Profile';
 import EpisodesDetails from '../views/EpisodesDetails';
-import {Box, Button, Container, Typography} from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
+     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
           if (!token || token === null) {
-               return <Navigate to="/login" replace state={{from: location}} />;
+               return <Navigate to="/login" replace state={{ from: location }} />;
           }
 
           return children;
      };
 
-     const PublicRoute = ({children}: {children: JSX.Element}) => {
+     const PublicRoute = ({ children }: { children: JSX.Element }) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
@@ -60,7 +61,7 @@ const Router: FC = () => {
                     // navigate('/welcome');
                     // console.log(token);
                } else {
-                    navigate('/login', {replace: true});
+                    navigate('/login', { replace: true });
                }
           }, [navigate, token]);
 
@@ -110,6 +111,7 @@ const Router: FC = () => {
                               </PublicRoute>
                          }
                     />
+
                     <Route
                          path="/login"
                          element={
@@ -142,6 +144,7 @@ const Router: FC = () => {
                               </ProtectedRoutes>
                          }
                     />
+                    <Route path="/characters/:id" element={<ProtectedRoutes><CharactersDetails /></ProtectedRoutes>} />
                     <Route
                          path="/episodes"
                          element={

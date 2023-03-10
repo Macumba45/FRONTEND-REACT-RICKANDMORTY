@@ -5,6 +5,7 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
+import StartIcon from '@mui/icons-material/Start';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
 import { MainContainer, StatusCHaracter } from './styles';
