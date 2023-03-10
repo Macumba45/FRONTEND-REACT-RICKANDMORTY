@@ -17,6 +17,19 @@ export const MainContainer = styled.div`
      }
 `;
 
+export const MainContainerLoader = styled.div`
+     display: flex;
+     margin-top: 5rem;
+justify-content:center;
+     margin-bottom: 5rem;
+
+     @media screen and (min-width: 600px) {
+
+        /* justify-content: center; */
+        
+     }
+`;
+
 
 
 export const StyledList = styled(List)`

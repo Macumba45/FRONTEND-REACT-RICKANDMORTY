@@ -9,10 +9,9 @@ import picture from '../../assets/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNz
 import { Accordion, AccordionDetails, AccordionSummary, List, Typography } from '@mui/material';
 import LinearProgress from '@mui/joy/LinearProgress';
 import Box from '@mui/joy/Box';
-import Sheet from '@mui/joy/Sheet';
 import Stack from '@mui/joy/Stack';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
-import { EpisodeBold, ImgList, MainContainer } from './styles';
+import { EpisodeBold, ImgList, MainContainer, MainContainerLoader } from './styles';
 
 
 const CardEpisodes: FC = () => {
@@ -22,7 +21,7 @@ const CardEpisodes: FC = () => {
     if (variante) {
 
         return (
-            <MainContainer>
+            <MainContainerLoader>
                 <Box
                     sx={{
                         width: '100%',
@@ -30,6 +29,8 @@ const CardEpisodes: FC = () => {
                         alignItems: 'center',
                         gap: 3,
                         marginTop: 15,
+                        marginRight: 10,
+                        marginLeft: 10,
                     }}
                 >
                     <Stack spacing={4} sx={{ flex: 1 }}>
@@ -40,17 +41,9 @@ const CardEpisodes: FC = () => {
                         <LinearProgress color="success" variant={variant} />
                         <LinearProgress color="warning" variant={variant} />
                     </Stack>
-                    <Sheet
-                        sx={{
-                            background: 'transparent',
-                            pl: 4,
-                            borderLeft: '1px solid',
-                            borderColor: 'divider',
-                        }}
-                    >
-                    </Sheet>
+
                 </Box>
-            </MainContainer>
+            </MainContainerLoader>
         );
 
 
