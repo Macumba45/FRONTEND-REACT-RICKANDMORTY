@@ -4,7 +4,7 @@ import { List } from '@mui/material';
 export const MainContainer = styled.div`
      display: flex;
      margin-top: 5rem;
-     /* flex-direction: column; */
+     flex-direction: column;
      flex-wrap: wrap;
      margin-bottom: 5rem;
      margin-left: 2rem;
@@ -40,3 +40,9 @@ font-weight: 800;
 color:#69c8ecff;
 
 `
+
+
+export const Container = styled.div`
+   
+`;
+
