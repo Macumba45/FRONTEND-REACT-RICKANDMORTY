@@ -1,15 +1,16 @@
-import {useCallback, useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import {fetchEpisodeId} from '../../../services/api/episodes';
-import {EpisodesDetailsProps} from './types';
+import { useCallback, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchEpisodeId } from '../../../services/api/episodes';
+import { EpisodesDetailsProps } from './types';
 
 const useLogic = () => {
      const [characters, setCharacters] = useState<EpisodesDetailsProps | null>(
           null
      );
      const [loading, setLoading] = useState(false);
+     const navigate = useNavigate();
 
-     const {id} = useParams<{id: string}>();
+     const { id } = useParams<{ id: string }>();
 
      const getAllCharactersByID = useCallback(async () => {
           if (id) {
@@ -20,6 +21,11 @@ const useLogic = () => {
           }
      }, [id]);
 
+     // const goToDetails = useCallback((id: string) => {
+     //      console.log(id);
+     //      navigate(`/characters/${id}`);
+     // }, [navigate]);
+
      useEffect(() => {
           getAllCharactersByID();
      }, [getAllCharactersByID]);
@@ -28,6 +34,7 @@ const useLogic = () => {
           getAllCharactersByID,
           characters,
           loading,
+          // goToDetails
      };
 };
 export default useLogic;
