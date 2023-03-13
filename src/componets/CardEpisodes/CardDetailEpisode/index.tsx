@@ -1,5 +1,5 @@
-import {FC, memo, useState} from 'react';
-import {styled} from '@mui/material/styles';
+import { FC, memo, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,18 +7,19 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
-import IconButton, {IconButtonProps} from '@mui/material/IconButton';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useLogic from './logic';
-import {MainContainer} from './styles';
-import {Button, Link} from '@mui/material';
-import picture from '../../../assets/wp6507378.jpg';
+import { MainContainer } from './styles';
+import { Button, Link } from '@mui/material';
+import picture from '../../../assets/wp6507378.jpg'
 
 const CardDetailsEpisode: FC = () => {
      const {characters, loading, goToCharacterDetails} = useLogic();
      const allCharactersByID = characters?.characters;
+
 
      const [expanded, setExpanded] = useState(false);
 
@@ -31,9 +32,9 @@ const CardDetailsEpisode: FC = () => {
      }
 
      const ExpandMore = styled((props: ExpandMoreProps) => {
-          const {expand, ...other} = props;
+          const { expand, ...other } = props;
           return <IconButton {...other} />;
-     })(({theme, expand}) => ({
+     })(({ theme, expand }) => ({
           transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
           marginLeft: 'auto',
           transition: theme.transitions.create('transform', {
@@ -47,11 +48,11 @@ const CardDetailsEpisode: FC = () => {
 
      return (
           <MainContainer>
-               <Card sx={{maxWidth: 345, marginBottom: 5}}>
+               <Card sx={{ maxWidth: 345, marginBottom: 5 }}>
                     <CardHeader
                          avatar={
                               <Avatar
-                                   sx={{bgcolor: '#69c8ecff'}}
+                                   sx={{ bgcolor: '#69c8ecff' }}
                                    aria-label="recipe"
                               >
                                    R
@@ -87,13 +88,17 @@ const CardDetailsEpisode: FC = () => {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                          <CardContent>
+
                               {allCharactersByID?.map((item: any) => (
                                    
                                    <Link
                                         sx={{textDecoration: 'none'}}
-                                        
+                                       
                                         onClick={() => goToCharacterDetails(item)}
                                         key={item}
+                                        // onClick={() => goToDetails(item.character_id)}
+                                        onClick={() => console.log(item)}
+
                                    >
                                         <Button
                                              sx={{

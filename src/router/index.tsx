@@ -17,103 +17,102 @@ import CharacterForm from '../componets/CharacterForm';
 import CharacterEditForm from '../views/CharacterEditForm';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
-          const token = getAuthenticatedToken();
-          const location = useLocation();
+    const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
+        const token = getAuthenticatedToken();
+        const location = useLocation();
 
-          if (!token || token === null) {
-               return <Navigate to="/login" replace state={{ from: location }} />;
-          }
+        if (!token || token === null) {
+            return <Navigate to="/login" replace state={{ from: location }} />;
+        }
 
-          return children;
-     };
+        return children;
+    };
 
-     const PublicRoute = ({ children }: { children: JSX.Element }) => {
-          const token = getAuthenticatedToken();
-          const location = useLocation();
+    const PublicRoute = ({ children }: { children: JSX.Element }) => {
+        const token = getAuthenticatedToken();
+        const location = useLocation();
 
-          if (token) {
-               if (
-                    location.pathname === '/login' ||
-                    location.pathname === '/signup' ||
-                    location.pathname === '/'
-               ) {
-                    return (
-                         <Navigate
-                              to="/characters"
-                              replace
-                              state={{
-                                   from: location,
-                              }}
-                         />
-                    );
-               }
-               return children;
-          }
-
-          return children;
-     };
-
-     const NotFound = () => {
-          const navigate = useNavigate();
-          const token = getAuthenticatedToken();
-
-          useEffect(() => {
-               if (token) {
-                    // navigate('/welcome');
-                    // console.log(token);
-               } else {
-                    navigate('/login', { replace: true });
-               }
-          }, [navigate, token]);
-
-          return (
-               <Box
-                    sx={{
-                         display: 'flex',
-                         justifyContent: 'center',
-                         alignItems: 'center',
-                         minHeight: '100vh',
-                    }}
-               >
-                    <Container maxWidth="md">
-                         <Grid container spacing={2}>
-                              <Grid xs={6}>
-                                   <Typography variant="h1">404</Typography>
-                                   <Typography variant="h6">
-                                        The page you’re looking for doesn’t
-                                        exist.
-                                   </Typography>
-                                   <Button href="/login" variant="contained">
-                                        Back Home
-                                   </Button>
-                              </Grid>
-                              <Grid xs={6}>
-                                   <img
-                                        src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
-                                        alt=""
-                                        width={500}
-                                        height={250}
-                                   />
-                              </Grid>
-                         </Grid>
-                    </Container>
-               </Box>
-          );
-     };
-
-     return (
-          <BrowserRouter>
-               <Routes>
-                    <Route
-                         path="/"
-                         element={
-                              <PublicRoute>
-                                   <Login />
-                              </PublicRoute>
-                         }
+        if (token) {
+            if (
+                location.pathname === '/login' ||
+                location.pathname === '/signup' ||
+                location.pathname === '/'
+            ) {
+                return (
+                    <Navigate
+                        to="/characters"
+                        replace
+                        state={{
+                            from: location,
+                        }}
                     />
+                );
+            }
+            return children;
+        }
 
+        return children;
+    };
+
+    const NotFound = () => {
+        const navigate = useNavigate();
+        const token = getAuthenticatedToken();
+
+        useEffect(() => {
+            if (token) {
+                // navigate('/welcome');
+                // console.log(token);
+            } else {
+                navigate('/login', { replace: true });
+            }
+        }, [navigate, token]);
+
+        return (
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '100vh',
+                }}
+            >
+                <Container maxWidth="md">
+                    <Grid container spacing={2}>
+                        <Grid xs={6}>
+                            <Typography variant="h1">404</Typography>
+                            <Typography variant="h6">
+                                The page you’re looking for doesn’t
+                                exist.
+                            </Typography>
+                            <Button href="/login" variant="contained">
+                                Back Home
+                            </Button>
+                        </Grid>
+                        <Grid xs={6}>
+                            <img
+                                src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
+                                alt=""
+                                width={500}
+                                height={250}
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+        );
+    };
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <PublicRoute>
+                            <Login />
+                        </PublicRoute>
+                    }
+                />
                     <Route
                          path="/login"
                          element={

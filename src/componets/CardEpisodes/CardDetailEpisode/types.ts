@@ -7,4 +7,5 @@ export type EpisodesDetailsProps = {
      createdAt: string;
      updatedAt: string;
      characters: Array<string>;
+
 };

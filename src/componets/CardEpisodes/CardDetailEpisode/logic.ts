@@ -1,9 +1,11 @@
+
 import {useCallback, useEffect, useState} from 'react';
 import {useParams , useNavigate} from 'react-router-dom';
 import { CharacterInput } from '../../../models/characters';
 import { fetchCharacter } from '../../../services/api/characters';
 import {fetchEpisodeId} from '../../../services/api/episodes';
 import {EpisodesDetailsProps} from './types';
+
 
 const useLogic = () => {
      const [characters, setCharacters] = useState<EpisodesDetailsProps | null>(
@@ -12,7 +14,8 @@ const useLogic = () => {
      const [characterEpisode, setCharacterEpisode] = useState<CharacterInput>();
      const [loading, setLoading] = useState(false);
      const navigate = useNavigate();
-     const {id} = useParams<{id: string}>();
+     const { id } = useParams<{ id: string }>();
+
 
      const getAllCharactersByID = useCallback(async () => {
           if (id) {
@@ -22,6 +25,7 @@ const useLogic = () => {
                setLoading(false);
           }
      }, [id]);
+
 
      const getCharacterDetail = useCallback(async () => {
           const data = await fetchCharacter(id!);
@@ -37,6 +41,7 @@ const useLogic = () => {
           getCharacterDetail();
      }, [getCharacterDetail]);
 
+
      useEffect(() => {
           getAllCharactersByID();
      }, [getAllCharactersByID]);
@@ -47,6 +52,7 @@ const useLogic = () => {
           goToCharacterDetails,
           characters,
           loading,
+          // goToDetails
      };
 };
 export default useLogic;
