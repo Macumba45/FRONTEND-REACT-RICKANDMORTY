@@ -1,9 +1,9 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import useLogic from './logic';
-import {Field, FieldProps, Formik} from 'formik';
-import {validationSchema, initialValues} from './constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema, initialValues } from './constants';
 import NavBar from '../../../componets/NavBar';
-import {LoginProps} from './type';
+import { LoginProps } from './type';
 import {
      MainFormContainer,
      LoginTitle,
@@ -22,8 +22,9 @@ import {
      ErrorLogin,
 } from './styles';
 
+
 const Login: FC<LoginProps> = () => {
-     const {error, handleSubmit} = useLogic();
+     const { error, handleSubmit } = useLogic();
 
      return (
           <>
@@ -38,7 +39,7 @@ const Login: FC<LoginProps> = () => {
                               <Form>
                                    <LoginTitle>SignIn</LoginTitle>
                                    <Field name="email">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Email* </Label>
@@ -59,7 +60,7 @@ const Login: FC<LoginProps> = () => {
                                         )}
                                    </Field>
                                    <Field name="password">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <PasswordContainer>
                                                   <LabelContainer>
                                                        <Label>Password* </Label>
