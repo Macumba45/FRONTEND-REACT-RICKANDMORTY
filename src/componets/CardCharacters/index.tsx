@@ -5,15 +5,59 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
+import LinearProgress from '@mui/joy/LinearProgress';
+import Box from '@mui/joy/Box';
+import Stack from '@mui/joy/Stack';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
-import { MainContainer, StatusCHaracter } from './styles';
+import { MainContainer, StatusCHaracter,MainContainerLoader } from './styles';
 import { CharacterProps } from './types';
 import useLogic from './logic';
 
 const CardCharacter: FC<CharacterProps> = () => {
-    const { characters, goToDetails } = useLogic();
+    const { characters, goToDetails,variant,variante } = useLogic();
+    if (variante) {
+        return (
+            <MainContainerLoader>
+                <Box
+                    sx={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 3,
+                        marginTop: 15,
+                        marginRight: 10,
+                        marginLeft: 10,
+                    }}
+                >
+                    <Stack spacing={4} sx={{ flex: 1 }}>
+                        <LinearProgress
+                            color="primary"
+                            variant={variant}
+                        />
+                        <LinearProgress
+                            color="neutral"
+                            variant={variant}
+                        />
+                        <LinearProgress
+                            color="danger"
+                            variant={variant}
+                        />
+                        <LinearProgress color="info" variant={variant} />
+                        <LinearProgress
+                            color="success"
+                            variant={variant}
+                        />
+                        <LinearProgress
+                            color="warning"
+                            variant={variant}
+                        />
+                    </Stack>
+                </Box>
+            </MainContainerLoader>
+        );
+    }
     return (
         <MainContainer>
             {characters.map((character) => (
@@ -120,7 +164,7 @@ const CardCharacter: FC<CharacterProps> = () => {
                             <ArrowForwardIosIcon
                                 onClick={() =>
                                     goToDetails(
-                                        character.id
+                                        character!.id!
                                     )
                                 }
                                 sx={{

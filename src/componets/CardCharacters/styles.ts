@@ -31,3 +31,15 @@ export const StatusCHaracter = styled.span`
      border-radius: 50%;
      margin-right: 5px;
 `;
+
+
+export const MainContainerLoader = styled.div`
+     display: flex;
+     margin-top: 5rem;
+     justify-content: center;
+     margin-bottom: 5rem;
+
+     @media screen and (min-width: 600px) {
+          /* justify-content: center; */
+     }
+`;

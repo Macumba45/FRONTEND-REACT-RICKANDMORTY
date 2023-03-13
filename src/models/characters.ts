@@ -1,13 +1,13 @@
 import {CharacterResponse} from '../services/api/characters';
 
 export type CharacterInput = {
-    id: string;
-    character_id: string;
-    name: string;
-    status: string;
-    species: string;
-    image: string;
-    createdAt: Date;
+    id?: string;
+    character_id?: string;
+    name?: string;
+    status?: string;
+    species?: string;
+    image?: string;
+    createdAt?: Date;
 };
 
 

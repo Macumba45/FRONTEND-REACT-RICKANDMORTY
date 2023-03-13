@@ -15,7 +15,7 @@ import { CharacterProps } from '../types';
 import useLogic from './logic';
 
 const CardCharacterDetail: FC<CharacterProps> = () => {
-     const { character, goToCharactersList } = useLogic();
+     const { character, goToCharactersList,goToEdit } = useLogic();
      return (
           <MainContainerDetail>
                <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
@@ -74,6 +74,9 @@ const CardCharacterDetail: FC<CharacterProps> = () => {
                                    marginRight: '1rem',
                               }}
                          />
+                         <button onClick={() => goToEdit(character!.id!)}>
+                              EDIT
+                         </button>
                     </CardOverflow>
 
                </Card>

@@ -13,6 +13,8 @@ import Profile from '../views/Profile';
 import EpisodesDetails from '../views/EpisodesDetails';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import CharacterForm from '../componets/CharacterForm';
+import CharacterEditForm from '../views/CharacterEditForm';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -145,6 +147,7 @@ const Router: FC = () => {
                          }
                     />
                     <Route path="/characters/:id" element={<ProtectedRoutes><CharactersDetails /></ProtectedRoutes>} />
+                    <Route path="/editCharacter/:id" element={<ProtectedRoutes><CharacterEditForm /></ProtectedRoutes>} />
                     <Route
                          path="/episodes"
                          element={
