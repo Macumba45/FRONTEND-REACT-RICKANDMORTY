@@ -17,9 +17,9 @@ import { Button, Link } from '@mui/material';
 import picture from '../../../assets/wp6507378.jpg'
 
 const CardDetailsEpisode: FC = () => {
-     const { characters, loading } = useLogic();
-     console.log(characters);
-     const charactersUrl = characters?.characters;
+     const {characters, loading, goToCharacterDetails} = useLogic();
+     const allCharactersByID = characters?.characters;
+
 
      const [expanded, setExpanded] = useState(false);
 
@@ -88,9 +88,13 @@ const CardDetailsEpisode: FC = () => {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                          <CardContent>
-                              {charactersUrl?.map((item) => (
+
+                              {allCharactersByID?.map((item: any) => (
+                                   
                                    <Link
-                                        sx={{ textDecoration: 'none' }}
+                                        sx={{textDecoration: 'none'}}
+                                       
+                                        onClick={() => goToCharacterDetails(item)}
                                         key={item}
                                         // onClick={() => goToDetails(item.character_id)}
                                         onClick={() => console.log(item)}

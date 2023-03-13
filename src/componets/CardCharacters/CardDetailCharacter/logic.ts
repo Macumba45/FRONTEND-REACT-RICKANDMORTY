@@ -7,7 +7,7 @@ const useLogic = () => {
      const navigate = useNavigate();
      const [character, setCharacters] = useState<CharacterInput>();
      const { id } = useParams<{ id: string }>();
-
+     console.log({id})
      const getCharacterDetail = useCallback(async () => {
           const data = await fetchCharacter(id!);
           setCharacters(data);
@@ -16,6 +16,9 @@ const useLogic = () => {
      const goToCharactersList = () => {
           navigate(`/characters`);
      }
+     const goToEdit = (id:string) => {
+          navigate(`/editCharacter/${id!}`);
+     }
      useEffect(() => {
           getCharacterDetail();
      }, [getCharacterDetail]);
@@ -23,6 +26,7 @@ const useLogic = () => {
      return {
           getCharacterDetail,
           goToCharactersList,
+          goToEdit,
           character
      };
 };
