@@ -16,25 +16,14 @@ const CharacterForm: FC = () => {
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
             body: JSON.stringify(values)
         })
-        const data = await response.json();
-        navigate('/characters')
-    }
-    const handleDeleteSubmit = async (id: string) => {
-        const token = getAuthenticatedToken();
-        const response = await fetch(`http://localhost:8000/characters/${id}`, {
-            method: 'DELETE',
-            headers: { Authorization: `Bearer ${token}` },
-        })
         await response.json();
         navigate('/characters')
     }
+    
     return (
         <MainContainer>
             <FormTitle>
                 EDIT CHARACTER
-                <CustomButton type='button' onClick={() => handleDeleteSubmit(id!)}>
-                            Delete
-            </CustomButton>
             </FormTitle>
             <Formik
                 validationSchema={validationSchema}

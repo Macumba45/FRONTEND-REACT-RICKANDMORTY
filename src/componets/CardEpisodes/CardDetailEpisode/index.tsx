@@ -109,7 +109,7 @@ const CardDetailsEpisode: FC = () => {
                                              }}
                                              variant="text"
                                         >
-                                             Character: {item.split('/').pop()}
+                                             Character: {item}
                                         </Button>
                                    </Link>
                               ))}

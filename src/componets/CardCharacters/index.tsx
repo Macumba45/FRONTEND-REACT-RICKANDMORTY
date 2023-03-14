@@ -8,15 +8,15 @@ import IconButton from '@mui/joy/IconButton';
 import LinearProgress from '@mui/joy/LinearProgress';
 import Box from '@mui/joy/Box';
 import Stack from '@mui/joy/Stack';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
-import { MainContainer, StatusCHaracter,MainContainerLoader } from './styles';
+import { MainContainer, StatusCHaracter, MainContainerLoader, CreateButton, DeleteButton, EditButton, ModalBox, CustomModal } from './styles';
 import { CharacterProps } from './types';
 import useLogic from './logic';
+import { MoreButton } from './styles';
 
 const CardCharacter: FC<CharacterProps> = () => {
-    const { characters, goToDetails,variant,variante } = useLogic();
+    const { characters, goToDetails, variant, variante, showOptions, toggleOptionsMenu, navigateToCreate, navigateToEdit, handleDelete} = useLogic();
     if (variante) {
         return (
             <MainContainerLoader>
@@ -60,7 +60,7 @@ const CardCharacter: FC<CharacterProps> = () => {
     }
     return (
         <MainContainer>
-            {characters.map((character) => (
+            {characters.map((character, index: number) => (
                 <Fragment key={character.character_id}>
                     <Card
                         variant="outlined"
@@ -105,7 +105,7 @@ const CardCharacter: FC<CharacterProps> = () => {
                             sx={{ fontSize: 'md', mt: 2 }}
                         >
                             <Link
-                                href="#multiple-actions"
+                                onClick={() => goToDetails(character!.id!)}
                                 overlay
                                 underline="none"
                                 sx={{ color: '#69c8ecff' }}
@@ -161,7 +161,7 @@ const CardCharacter: FC<CharacterProps> = () => {
                             >
                                 ID: {character.character_id}
                             </Typography>
-                            <ArrowForwardIosIcon
+                            {/* <ArrowForwardIosIcon
                                 onClick={() =>
                                     goToDetails(
                                         character!.id!
@@ -172,7 +172,19 @@ const CardCharacter: FC<CharacterProps> = () => {
                                     cursor: 'pointer',
                                     marginRight: '1rem',
                                 }}
+                            /> */}
+                            <MoreButton
+                                onClick={toggleOptionsMenu}
                             />
+                            {
+                            showOptions &&
+                                <>
+                                    <CreateButton onClick={navigateToCreate}/>
+                                    <EditButton onClick={() => navigateToEdit(character!.id!)}/>
+                                    <DeleteButton onClick={() => handleDelete(character!.id!)}/>
+                                </>
+                            }
+
                         </CardOverflow>
                     </Card>
                 </Fragment>
