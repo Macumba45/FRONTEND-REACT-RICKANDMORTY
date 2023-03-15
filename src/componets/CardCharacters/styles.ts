@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import { ReactComponent as DefaultMenuIcon } from '../../assets/icons/ellipsis-solid.svg';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import Box from '@mui/joy/Box';
+import Modal from '@mui/material/Modal';
 
 export const MainContainer = styled.div`
      width: 100%;
@@ -42,4 +48,31 @@ export const MainContainerLoader = styled.div`
      @media screen and (min-width: 600px) {
           /* justify-content: center; */
      }
+`;
+
+export const ModalBox = styled(Box)`
+     background-color: white;
+`;
+export const CustomModal = styled(Modal)`
+     width: 50%;
+     background-color: white;
+`;
+export const MoreButton = styled(DefaultMenuIcon)`
+     width: 20px;
+     cursor: pointer;
+`;
+
+export const CreateButton = styled(AddCircleIcon)`
+     color: ${({theme}) => theme.colors.tertiary};
+     cursor: pointer;
+`;
+
+export const DeleteButton = styled(DeleteIcon)`
+     color: ${({theme}) => theme.colors.tertiary};
+     cursor: pointer;
+`;
+
+export const EditButton = styled(EditIcon)`
+     color: ${({theme}) => theme.colors.tertiary};
+     cursor: pointer;
 `;
