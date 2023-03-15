@@ -1,8 +1,6 @@
 import { getAuthenticatedToken } from '../storage';
 import { CharacterInput, normalizeCharacter } from '../../models/characters';
 
-
-
 const BASE_URL = 'http://localhost:8000/characters';
 
 export type CharacterResponse = {

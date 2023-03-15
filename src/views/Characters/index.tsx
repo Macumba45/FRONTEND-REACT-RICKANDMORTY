@@ -1,7 +1,7 @@
 import {FC, memo} from 'react';
 import NavBar from '../../../src/componets/NavBar';
 import NavBarBottom from '../../componets/NavBarBottom';
-import CardCharacter from '../../componets/CardCharacters';
+import CardCharacter from '../../componets/Card';
 
 const Characters: FC = () => {
      return (
