@@ -15,6 +15,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import CharacterForm from '../componets/CharacterForm';
 import CharacterEditForm from '../views/CharacterEditForm';
+import TestCharacters from '../views/TestCharacters';
 
 const Router: FC = () => {
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -141,7 +142,7 @@ const Router: FC = () => {
                          path="/characters"
                          element={
                               <ProtectedRoutes>
-                                   <Characters />
+                                   <TestCharacters />
                               </ProtectedRoutes>
                          }
                     />

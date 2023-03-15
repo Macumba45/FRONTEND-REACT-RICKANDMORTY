@@ -6,7 +6,7 @@ import { deleteCharacter, fetchCharactersList } from '../../services/api/charact
 
 const useLogic = () => {
     const navigate = useNavigate();
-    const [variante, setVariante] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [showOptions, setShowOptions] = useState(false);
     const [characters, setCharacters] = useState<CharacterInput[]>([]);
     const [variant] = useState<VariantProp>('soft');
@@ -22,11 +22,11 @@ const useLogic = () => {
 
 
     const getCharacters = useCallback(async () => {
-        setVariante(true);
+        setLoading(true);
         const data = await fetchCharactersList();
         setCharacters(data);
         setTimeout(() => {
-            setVariante(false);
+            setLoading(false);
         }, 2000);
     }, []);
 
@@ -37,7 +37,7 @@ const useLogic = () => {
         navigate(`/editCharacter/${id!}`);
     }, [navigate]);
 
-    const handleDelete = useCallback(async (id: string) => {
+    const handleDeleteCharacter = useCallback(async (id: string) => {
         await deleteCharacter(id);
         navigate(0);
     }, [navigate]);
@@ -50,13 +50,13 @@ const useLogic = () => {
         getAllcharacters: getCharacters,
         goToDetails,
         characters,
-        variante,
+        loading,
         variant,
         showOptions,
         toggleOptionsMenu,
         navigateToCreate,
         navigateToEdit,
-        handleDelete
+        handleDeleteCharacter
     };
 };
 export default useLogic;

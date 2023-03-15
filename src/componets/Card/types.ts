@@ -7,7 +7,8 @@ export type CardProps = {
     image?: string;
     createdAt?: Date;
     toggleShowMore?: () => void;
-    handleDelete?: (id: string) => void;
-    handleUpdate?: (id: string) => void;
+    handleDelete?: () => void;
+    handleUpdate?: () => void;
     handleCreate?: () => void;
+    handleShowMore?: () => void;
 }

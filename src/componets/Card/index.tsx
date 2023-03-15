@@ -18,7 +18,8 @@ import {
     DeleteButton,
     IconsContainer,
     TypographyContainer,
-    SubContainerSubGeneral
+    SubContainerSubGeneral,
+    CustomImg
 } from "./styles";
 
 const CardCharacter: FC<CardProps> = ({
@@ -29,26 +30,23 @@ const CardCharacter: FC<CardProps> = ({
             <CustomCard>
                 <SubContainerGeneral>
                     <ImgContainer>
-                        {/* <img
-                            src={imgTest}
+                        <CustomImg
+                            src={props.image}
                             loading="lazy"
                             alt="sdgsd"
-
-                        /> */}
+                        />
                     </ImgContainer>
                     <SubContainerSubGeneral>
                         <Typography
                         >
                             <Link
                             >
-                                Soy un link
+                                {props.name}
                             </Link>
                         </Typography>
                         <Typography >
-                            <Link
-                                href="#multiple-actions"
-                            >
-                                Soy un link
+                            <Link>
+                                {props.species}
                             </Link>
                         </Typography>
                         <FavIconContainer
@@ -63,22 +61,22 @@ const CardCharacter: FC<CardProps> = ({
                 <SubContainerInfo>
                     <TypographyContainer>
                         <Typography>
-                            <StatusCharacter $isDead={false} />
-                            Alive
+                            <StatusCharacter $isDead={props.status!} />
+                            {props.status}
                         </Typography>
                         <Typography>
-                            ID: 123
+                            ID: {props.character_id}
                         </Typography>
                     </TypographyContainer>
 
                     <IconsContainer>
                         <MoreButton
-                        // onClick={toggleOptionsMenu}
+                        onClick={props.toggleShowMore}
                         />
                         <>
-                            <CreateButton />
-                            <EditButton />
-                            <DeleteButton />
+                            <CreateButton onClick={props.handleCreate} />
+                            <EditButton onClick={props.handleUpdate} />
+                            <DeleteButton onClick={props.handleDelete} />
                         </>
                     </IconsContainer>
                 </SubContainerInfo>

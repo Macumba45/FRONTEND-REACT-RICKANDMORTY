@@ -8,10 +8,9 @@ import EditIcon from '@mui/icons-material/Edit';
 export const MainContainer = styled.div`
     align-items: center;
     display: flex;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
+    flex-flow: row;
     gap: 2rem;
-    height: auto;
+    height: 25rem;
     justify-content: center;
     margin-bottom: 5rem;
     margin-top: 7rem;
@@ -19,55 +18,54 @@ export const MainContainer = styled.div`
 `;
 
 export const CustomCard = styled.div`
+    -moz-box-shadow: 0 0 17px -0.5px #69c8ec;
+    -webkit-box-shadow: 0 0 17px -0.5px #69c8ec;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 17px -0.5px #69c8ec;
     display: flex;
     flex-flow: row wrap;
+    height: 100%;
     justify-content: space-around;
-    align-items: center;
-    height: 15rem;
-    width: 70%;
-    text-align: center;
     padding: .5rem;
-    border-radius: 10px;
-    -webkit-box-shadow: 0 0 17px -0.5px #69c8ec;
-    -moz-box-shadow: 0 0 17px -0.5px #69c8ec;
-    box-shadow: 0 0 17px -0.5px #69c8ec;
+    text-align: center;
+    width: 70%;
 `;
 export const SubContainerGeneral = styled.div`
+    align-items: center;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
     width: 100%;
 `;
 export const SubContainerSubGeneral = styled.div`
+    align-items: center;
     display: flex;
     flex-flow: row;
     justify-content: center;
-    align-items: center;
     text-align: center;
     width: 100%;
-    margin-top: 5rem;
 `;
 export const SubContainerInfo = styled.div`
+    align-items: center;
     display: flex;
     flex-flow: column;
+    height: 30%;
     justify-content: center;
-    align-items: center;
     text-align: center;
     width: 100%;
-    height: 30%;
 `;
 
 export const IconsContainer = styled.div`
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
+    height: 20rem;
     justify-content: space-evenly;
-    align-items: center;
+    margin-top: 2rem;
     text-align: center;
     width: 100%;
-    height: 20rem;
-    margin-top: 2rem;
 `;
 
 export const TypographyContainer = styled.div`
@@ -78,50 +76,60 @@ export const TypographyContainer = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-    width: 100%;
+    align-items: center;
+    background-image: url('../assets/wp6507378.jpg');
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
-    background-image: url('../assets/wp6507378.jpg');
+    width: 100%;
 `;
 
 export const FavIconContainer = styled.div`
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 `;
 
 export const FavIcon = styled.div`
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 `;
 
 export const Typography = styled.div`
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    width: 100%;
 `;
 
 export const Link = styled.a`
     text-align: center;
 `;
 
-export const StatusCharacter = styled(DefaultCircleDead)<{$isDead: Boolean}>`
+export const StatusCharacter = styled(DefaultCircleDead)<{$isDead: String}>`
+    ${({$isDead, theme}) => ($isDead !== 'Alive'? `fill: ${theme.colors.quaternary};` : `fill: ${theme.colors.danger};`)}
     display: flex;
     flex-flow: row wrap;
-    width: 10px;
     height: 10px;
+    width: 10px;
     z-index: 100;
-    ${({$isDead, theme}) => ($isDead? `fill: ${theme.colors.danger};` : `fill: ${theme.colors.danger};`)}
 `;
+export const CustomImg = styled.img`
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    background:url(../img/imagen.jpg);
+    height:279px;
+    padding:13px;
+    width:279px;
+`;
+
 
 export const MainContainerDetail = styled.div`
     width: 100%;
