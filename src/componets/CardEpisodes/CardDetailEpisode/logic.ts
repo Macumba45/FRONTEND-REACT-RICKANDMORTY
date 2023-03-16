@@ -1,11 +1,9 @@
-
 import {useCallback, useEffect, useState} from 'react';
-import {useParams , useNavigate} from 'react-router-dom';
-import { CharacterInput } from '../../../models/characters';
-import { fetchCharacter } from '../../../services/api/characters';
+import {useParams, useNavigate} from 'react-router-dom';
+import {CharacterInput} from '../../../models/characters';
+import {fetchCharacter} from '../../../services/api/characters';
 import {fetchEpisodeId} from '../../../services/api/episodes';
 import {EpisodesDetailsProps} from './types';
-
 
 const useLogic = () => {
      const [characters, setCharacters] = useState<EpisodesDetailsProps | null>(
@@ -14,8 +12,7 @@ const useLogic = () => {
      const [characterEpisode, setCharacterEpisode] = useState<CharacterInput>();
      const [loading, setLoading] = useState(false);
      const navigate = useNavigate();
-     const { id } = useParams<{ id: string }>();
-
+     const {id} = useParams<{id: string}>();
 
      const getAllCharactersByID = useCallback(async () => {
           if (id) {
@@ -26,21 +23,22 @@ const useLogic = () => {
           }
      }, [id]);
 
-
      const getCharacterDetail = useCallback(async () => {
           const data = await fetchCharacter(id!);
           setCharacterEpisode(data);
      }, [id]);
 
-     const goToCharacterDetails = useCallback((id: string) => {
-          console.log({id});
-          navigate(`/characters/${id}`);
-     }, [navigate]);
+     const goToCharacterDetails = useCallback(
+          (id: string) => {
+               console.log({id});
+               navigate(`/characters/${id}`);
+          },
+          [navigate]
+     );
 
      useEffect(() => {
           getCharacterDetail();
      }, [getCharacterDetail]);
-
 
      useEffect(() => {
           getAllCharactersByID();

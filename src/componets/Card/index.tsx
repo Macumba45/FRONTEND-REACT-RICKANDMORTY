@@ -1,6 +1,5 @@
-import { FC, memo } from "react"
-import { CardProps } from "./types";
-import imgTest from '../../assets/wp6507378.jpg'
+import { FC, memo, useCallback, useState } from 'react';
+import { CardProps } from './types';
 import {
     MainContainer,
     CustomCard,
@@ -18,73 +17,89 @@ import {
     DeleteButton,
     IconsContainer,
     TypographyContainer,
-    SubContainerSubGeneral
-} from "./styles";
+    SubContainerSubGeneral,
+    CustomImg,
+} from './styles';
+import useLogicProfile from '../../views/Profile/logic';
 
-const CardCharacter: FC<CardProps> = ({
-    ...props
-}) => {
+const CardCharacter: FC<CardProps> = ({ ...props }) => {
+
+    const { handlePostFavs } = useLogicProfile()
+
+    const [showOptions, setShowOptions] = useState(false);
+    const [isFav, setIsFav] = useState(false);
+    const toggleFav = useCallback(() => {
+        setIsFav(!isFav);
+    }, [isFav]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const toggleShowMore = useCallback(
+        () => setShowOptions(!showOptions),
+        [showOptions]
+    );
+
     return (
         <MainContainer>
             <CustomCard>
                 <SubContainerGeneral>
                     <ImgContainer>
-                        {/* <img
-                            src={imgTest}
+                        <CustomImg
+                            src={props.image}
                             loading="lazy"
                             alt="sdgsd"
-
-                        /> */}
+                        />
                     </ImgContainer>
                     <SubContainerSubGeneral>
-                        <Typography
-                        >
-                            <Link
-                            >
-                                Soy un link
-                            </Link>
+                        <Typography>
+                            <Link>{props.name}</Link>
                         </Typography>
-                        <Typography >
-                            <Link
-                                href="#multiple-actions"
-                            >
-                                Soy un link
-                            </Link>
+                        <Typography>
+                            <Link>Specie: {props.species}</Link>
                         </Typography>
-                        <FavIconContainer
-                            aria-label="Like minimal photography"
-                        >
-                            <FavIcon />
+                        <FavIconContainer aria-label="Like minimal photography">
+                            <FavIcon
+                                onClick={() => {
+                                    const id = props.id || '';
+                                    toggleFav();
+                                    handlePostFavs(id);
+                                }}
+                                $isFav={isFav}
+                            />
                         </FavIconContainer>
                     </SubContainerSubGeneral>
-
                 </SubContainerGeneral>
 
                 <SubContainerInfo>
                     <TypographyContainer>
                         <Typography>
-                            <StatusCharacter $isDead={false} />
-                            Alive
+                            <StatusCharacter $isDead={props.status!} />
+                            {props.status}
                         </Typography>
-                        <Typography>
-                            ID: 123
+                        <Typography onClick={props.handleDetails}>
+                            Go to details: {props.character_id}
                         </Typography>
                     </TypographyContainer>
 
                     <IconsContainer>
-                        <MoreButton
-                        // onClick={toggleOptionsMenu}
-                        />
-                        <>
-                            <CreateButton />
-                            <EditButton />
-                            <DeleteButton />
-                        </>
+                        <MoreButton onClick={() => toggleShowMore()} />
+
+                        {showOptions && (
+                            <>
+                                <CreateButton
+                                    onClick={props.handleCreate}
+                                />
+                                <EditButton
+                                    onClick={props.handleUpdate}
+                                />
+                                <DeleteButton
+                                    onClick={props.handleDelete}
+                                />
+                            </>
+                        )}
                     </IconsContainer>
                 </SubContainerInfo>
             </CustomCard>
         </MainContainer>
-    )
-}
+    );
+};
 
 export default memo(CardCharacter);

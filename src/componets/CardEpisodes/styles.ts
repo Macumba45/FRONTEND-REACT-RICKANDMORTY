@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {List} from '@mui/material';
 
-
 export const MainContainer = styled.div`
      display: flex;
      margin-top: 5rem;
@@ -46,5 +45,3 @@ export const EpisodeBold = styled.span`
      font-weight: 800;
      color: #69c8ecff;
 `;
-
-

@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Form as defaultForm } from 'formik';
-import background from '../../../../src/assets/7e5e87d6ac1ae0ecc7b7a962080ee329.jpg'
+import styled, {css} from 'styled-components';
+import {Link} from 'react-router-dom';
+import {Form as defaultForm} from 'formik';
+import background from '../../../../src/assets/7e5e87d6ac1ae0ecc7b7a962080ee329.jpg';
 
 export const LoginBackImg = styled.div`
      /* background: rgb(105, 200, 236);
@@ -10,7 +10,7 @@ export const LoginBackImg = styled.div`
           rgba(105, 200, 236, 1) 1%,
           rgba(105, 200, 236, 1) 100%
      ); */
-     background-image:url(${background});
+     background-image: url(${background});
      /* background-attachment: fixed; */
      /* background-position: center; */
      /* background-size: cover; */
@@ -26,7 +26,7 @@ export const MainFormContainer = styled.div`
 `;
 
 export const Form = styled(defaultForm)`
-     background-color: ${({ theme }) => theme.colors.primary};
+     background-color: ${({theme}) => theme.colors.primary};
      border-radius: 10px;
      height: 35rem;
      margin-left: 1.7rem;
@@ -43,10 +43,10 @@ export const Form = styled(defaultForm)`
 `;
 
 export const LoginTitle = styled.h1`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-     color: ${({ theme }) => theme.colors.tertiary};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.tertiary};
      margin-bottom: 3.125rem;
      margin-left: 1.875rem;
      margin-top: 3.125rem;
@@ -72,19 +72,19 @@ export const PasswordContainer = styled.div`
 export const LabelContainer = styled.div``;
 
 export const Label = styled.label`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
      margin: 0 2.1rem;
 `;
 
-export const Input = styled.input<{ $hasError?: boolean }>`
+export const Input = styled.input<{$hasError?: boolean}>`
      border-radius: 5px;
      border: 0.1px solid
-          ${({ $hasError, theme }) =>
-          $hasError ? theme.colors.danger : theme.colors.tertiary};
+          ${({$hasError, theme}) =>
+               $hasError ? theme.colors.danger : theme.colors.tertiary};
      padding-left: 0.5rem;
      box-sizing: border-box;
-     font-family: ${({ theme }) => theme.fonts.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
      font-size: 0.8rem;
      height: 2.5rem;
      margin-right: 2rem;
@@ -92,15 +92,15 @@ export const Input = styled.input<{ $hasError?: boolean }>`
      margin-top: 0.625rem;
      width: 15rem;
 
-     ${({ $hasError, theme }) =>
+     ${({$hasError, theme}) =>
           $hasError &&
           css`
                color: ${theme.colors.danger};
           `}
 
      &::placeholder {
-          color: ${({ theme }) => theme.colors.primary};
-          font-family: ${({ theme }) => theme.fonts.primary};
+          color: ${({theme}) => theme.colors.primary};
+          font-family: ${({theme}) => theme.fonts.primary};
           font-size: 0.7rem;
           font-weight: 200;
           opacity: 0.5;
@@ -112,8 +112,8 @@ export const Input = styled.input<{ $hasError?: boolean }>`
 `;
 
 export const Error = styled.span`
-     color: ${({ theme }) => theme.colors.danger};
-     font-family: ${({ theme }) => theme.fonts.primary};
+     color: ${({theme}) => theme.colors.danger};
+     font-family: ${({theme}) => theme.fonts.primary};
      font-size: 0.7rem;
      margin-top: 0.5rem;
      margin-left: 2.05rem;
@@ -134,26 +134,26 @@ export const LinkSignupContainer = styled.div`
 `;
 
 export const LinkSignupText = styled(Link)`
-     color: ${({ theme }) => theme.colors.tertiary};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     color: ${({theme}) => theme.colors.tertiary};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: 500;
      text-decoration: none;
 
      &:hover {
-          color: ${({ theme }) => theme.colors.secondary};
+          color: ${({theme}) => theme.colors.secondary};
 
           cursor: pointer;
      }
 `;
 
 export const ButtonLogin = styled.button`
-     background-color: ${({ theme }) => theme.colors.tertiary};
+     background-color: ${({theme}) => theme.colors.tertiary};
      border-radius: 10px;
      border: none;
      color: white;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: 500;
      margin-bottom: 3.125rem;
      margin-top: 50px;
@@ -161,8 +161,8 @@ export const ButtonLogin = styled.button`
      text-decoration: none;
 
      &:hover {
-          background-color: ${({ theme }) => theme.colors.secondary};
-          color: ${({ theme }) => theme.colors.light};
+          background-color: ${({theme}) => theme.colors.secondary};
+          color: ${({theme}) => theme.colors.light};
           cursor: pointer;
      }
 `;
@@ -173,16 +173,16 @@ export const ErrorFirebaseContainer = styled.div`
 `;
 
 export const ErrorFirebaseText = styled.p`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.danger};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.danger};
      margin-bottom: 1rem;
 `;
 
 export const ErrorLogin = styled.span`
-     color: ${({ theme }) => theme.colors.danger};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-family: ${({ theme }) => theme.fonts.primary};
+     color: ${({theme}) => theme.colors.danger};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-family: ${({theme}) => theme.fonts.primary};
      margin-top: 1rem;
 `;

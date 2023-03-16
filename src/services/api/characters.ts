@@ -11,7 +11,7 @@ export type CharacterResponse = {
     species: string;
     image: string;
     createdAt: Date;
-    updatedAt: Date;
+    updatedAt?: Date;
 };
 export type CharacterSpecieResponse = {
     species: string;
@@ -31,11 +31,11 @@ export async function fetchCharactersList() {
 }
 
 // export async function fetchCharactersSpecie() {
-//     const token = getAuthenticatedToken(); 
+//     const token = getAuthenticatedToken();
 //     const response = await fetch(`${BASE_URL}/species`, {
 //         method: 'GET',
 //         headers: {
-//             Authorization: `Bearer ${token}`, 
+//             Authorization: `Bearer ${token}`,
 //             'Content-Type': 'application/json',
 //         },
 //     });
@@ -56,14 +56,19 @@ export async function fetchCharacter(id: string) {
     return normalizeCharacter(data);
 }
 
-export async function UpdateCharacter(id: string, values: { name: string, status: string, species: string }) {
+export async function UpdateCharacter(
+    id: string,
+    values: { name: string; status: string; species: string }
+) {
     const token = getAuthenticatedToken();
-
     const response = await fetch(`http://localhost:8000/characters/${id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify(values)
-    })
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(values),
+    });
     const data = await response.json();
     // MUST NORMALIZE DATA HERE
     return data;
@@ -74,5 +79,5 @@ export const deleteCharacter = async (id: string) => {
     await fetch(`http://localhost:8000/characters/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
-    })
-}
+    });
+};
