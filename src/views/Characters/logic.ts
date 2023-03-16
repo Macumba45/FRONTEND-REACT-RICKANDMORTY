@@ -52,10 +52,6 @@ const useLogic = () => {
     }, [showFavs, handleShowFavs]);
 
 
-    const handleShowUserPosts = useCallback(async () => {
-        console.log('posts');
-    }, []);
-
 
     const handlePostFavs = useCallback(async (id: string) => {
         await postUserFavs(id);
@@ -89,7 +85,6 @@ const useLogic = () => {
     return {
         getAllcharacters: getCharacters,
         toggleShowFavs,
-        handleShowUserPosts,
         handlePostFavs,
         goToDetails,
         characters,

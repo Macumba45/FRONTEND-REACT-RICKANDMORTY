@@ -18,8 +18,6 @@ const TestCharacters = () => {
           handleDeleteCharacter,
           navigateToCreate,
           variant,
-          toggleShowFavs,
-          handleShowUserPosts,
           handlePostFavs,
      } = useLogic();
 
