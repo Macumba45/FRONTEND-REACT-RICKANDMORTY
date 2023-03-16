@@ -5,14 +5,8 @@ import Login from '../views/auth/Login';
 import {getAuthenticatedToken} from '../services/storage';
 import SignUp from '../views/auth/SignUp';
 import Welcome from '../views/Welcome';
-import CharactersDetails from '../views/CharacterDetails';
-import Episodes from '../views/Episodes';
-import Locations from '../views/Locations';
-import Profile from '../views/Profile';
-import EpisodesDetails from '../views/EpisodesDetails';
 import {Box, Button, Container, Typography} from '@mui/material';
 import Grid from '@mui/material/Grid';
-import CharacterEditForm from '../views/CharacterEditForm';
 import TestCharacters from '../views/Characters';
 
 const Router: FC = () => {
@@ -141,62 +135,6 @@ const Router: FC = () => {
                          element={
                               <ProtectedRoutes>
                                    <TestCharacters />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/characters/:id"
-                         element={
-                              <ProtectedRoutes>
-                                   <CharactersDetails />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/editCharacter/:id"
-                         element={
-                              <ProtectedRoutes>
-                                   <CharacterEditForm />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/create-character"
-                         element={
-                              <ProtectedRoutes>
-                                   <CharacterEditForm />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/episodes"
-                         element={
-                              <ProtectedRoutes>
-                                   <Episodes />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/episodes/:id"
-                         element={
-                              <ProtectedRoutes>
-                                   <EpisodesDetails />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/locations"
-                         element={
-                              <ProtectedRoutes>
-                                   <Locations />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/profile"
-                         element={
-                              <ProtectedRoutes>
-                                   <Profile />
                               </ProtectedRoutes>
                          }
                     />

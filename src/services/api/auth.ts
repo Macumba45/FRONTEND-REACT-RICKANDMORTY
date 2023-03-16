@@ -1,11 +1,16 @@
 import {LoginProps} from '../../views/auth/Login/type';
 import {SignUpProps} from '../../views/auth/SignUp/type';
+const BASE_URL = 'http://localhost:8000/auth/';
 
-export const handledSubmitLogin = async (
+/**
+ * *handledSubmitLogin*
+ * *Allow a user to login in our app. This function calls to the specific endpoint in our back-end*
+ */
+export const handelSubmitLogin = async (
      values: LoginProps
 ): Promise<Response> => {
      try {
-          const response = await fetch('http://localhost:8000/auth/login', {
+          const response = await fetch(`${BASE_URL}login`, {
                method: 'POST',
                headers: {
                     'Content-Type': 'application/json',
@@ -18,14 +23,17 @@ export const handledSubmitLogin = async (
 
           return response;
      } catch (error: any) {
-          console.log(error);
-          return new Response(null);
+          const backError = await error.json();
+          return backError;
      }
 };
-
-export const hadledSubmitSignup = async (values: SignUpProps) => {
+/**
+ * *handledSubmitLogin*
+ * *Allow a user to sign up our app. This function calls to the specific endpoint in our back-end*
+ */
+export const handelSubmitSignup = async (values: SignUpProps) => {
      try {
-          const response = await fetch('http://localhost:8000/auth/signup', {
+          const response = await fetch(`${BASE_URL}signup`, {
                method: 'POST',
                headers: {
                     'Content-Type': 'application/json',
@@ -38,7 +46,7 @@ export const hadledSubmitSignup = async (values: SignUpProps) => {
           });
           return response;
      } catch (error: any) {
-          console.log(error);
-          return new Response(null);
+          const backError = await error.json();
+          return backError;
      }
 };
