@@ -20,12 +20,8 @@ import {
     SubContainerSubGeneral,
     CustomImg,
 } from './styles';
-import useLogicProfile from '../../views/Profile/logic';
 
 const CardCharacter: FC<CardProps> = ({ ...props }) => {
-
-    const { handlePostFavs } = useLogicProfile()
-
     const [showOptions, setShowOptions] = useState(false);
     const [isFav, setIsFav] = useState(false);
     const toggleFav = useCallback(() => {
@@ -60,7 +56,7 @@ const CardCharacter: FC<CardProps> = ({ ...props }) => {
                                 onClick={() => {
                                     const id = props.id || '';
                                     toggleFav();
-                                    handlePostFavs(id);
+                                    props.handlePostFavs(id);
                                 }}
                                 $isFav={isFav}
                             />

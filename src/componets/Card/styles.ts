@@ -38,8 +38,8 @@ export const MainContainer = styled.div`
           width: 31.9%;
           margin-top: 3rem;
      }
-     @media (min-width: 1028px) {
-          width: 13.9%;
+     @media (min-width: 1024px) {
+          width: 23.9%;
           margin-top: 3rem;
      }
      &:hover {
