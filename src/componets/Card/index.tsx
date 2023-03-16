@@ -1,5 +1,5 @@
-import { FC, memo, useCallback, useState } from "react"
-import { CardProps } from "./types";
+import { FC, memo, useCallback, useState } from 'react';
+import { CardProps } from './types';
 import {
     MainContainer,
     CustomCard,
@@ -19,19 +19,24 @@ import {
     TypographyContainer,
     SubContainerSubGeneral,
     CustomImg,
-} from "./styles";
+} from './styles';
+import useLogicProfile from '../../views/Profile/logic';
 
-const CardCharacter: FC<CardProps> = ({
-    ...props
-}) => {
+const CardCharacter: FC<CardProps> = ({ ...props }) => {
+
+    const { handlePostFavs } = useLogicProfile()
+
     const [showOptions, setShowOptions] = useState(false);
-    const [isFav , setIsFav] = useState(false);
+    const [isFav, setIsFav] = useState(false);
     const toggleFav = useCallback(() => {
         setIsFav(!isFav);
-    },[isFav])
+    }, [isFav]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const toggleShowMore = useCallback(() => setShowOptions(!showOptions)
-        , [showOptions]);
+    const toggleShowMore = useCallback(
+        () => setShowOptions(!showOptions),
+        [showOptions]
+    );
+
     return (
         <MainContainer>
             <CustomCard>
@@ -44,25 +49,23 @@ const CardCharacter: FC<CardProps> = ({
                         />
                     </ImgContainer>
                     <SubContainerSubGeneral>
-                        <Typography
-                        >
-                            <Link
-                            >
-                                {props.name}
-                            </Link>
+                        <Typography>
+                            <Link>{props.name}</Link>
                         </Typography>
-                        <Typography >
-                            <Link>
-                            Specie: {props.species}
-                            </Link>
+                        <Typography>
+                            <Link>Specie: {props.species}</Link>
                         </Typography>
-                        <FavIconContainer
-                            aria-label="Like minimal photography"
-                        >
-                            <FavIcon onClick={() => toggleFav()} $isFav={isFav} />
+                        <FavIconContainer aria-label="Like minimal photography">
+                            <FavIcon
+                                onClick={() => {
+                                    const id = props.id || '';
+                                    toggleFav();
+                                    handlePostFavs(id);
+                                }}
+                                $isFav={isFav}
+                            />
                         </FavIconContainer>
                     </SubContainerSubGeneral>
-
                 </SubContainerGeneral>
 
                 <SubContainerInfo>
@@ -72,32 +75,31 @@ const CardCharacter: FC<CardProps> = ({
                             {props.status}
                         </Typography>
                         <Typography onClick={props.handleDetails}>
-                            ID: {props.character_id}
+                            Go to details: {props.character_id}
                         </Typography>
                     </TypographyContainer>
 
                     <IconsContainer>
-                        <MoreButton
-                        onClick={() => toggleShowMore()}
-                        />
-                        
-                        
-                            {
-                                showOptions && 
-                                <>
-                                    <CreateButton onClick={props.handleCreate} />
-                                    <EditButton onClick={props.handleUpdate} />
-                                    <DeleteButton onClick={props.handleDelete} />
-                                </>
-                            }
-                        
-                            
-                        
+                        <MoreButton onClick={() => toggleShowMore()} />
+
+                        {showOptions && (
+                            <>
+                                <CreateButton
+                                    onClick={props.handleCreate}
+                                />
+                                <EditButton
+                                    onClick={props.handleUpdate}
+                                />
+                                <DeleteButton
+                                    onClick={props.handleDelete}
+                                />
+                            </>
+                        )}
                     </IconsContainer>
                 </SubContainerInfo>
             </CustomCard>
         </MainContainer>
-    )
-}
+    );
+};
 
 export default memo(CardCharacter);

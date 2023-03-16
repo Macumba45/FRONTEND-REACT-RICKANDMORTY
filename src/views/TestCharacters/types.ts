@@ -1,3 +1,3 @@
 export type TestProps = {
-    test: string;
-}
+     test: string;
+};

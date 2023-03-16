@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as DefaultMenuIcon } from '../../assets/icons/ellipsis-solid.svg';
+import {ReactComponent as DefaultMenuIcon} from '../../assets/icons/ellipsis-solid.svg';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -20,15 +20,15 @@ export const MainContainer = styled.div`
 `;
 
 export const MainContainerDetail = styled.div`
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: column wrap;
-    margin-top: 5rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+     width: 100%;
+     height: auto;
+     display: flex;
+     flex-flow: column wrap;
+     margin-top: 5rem;
+     align-items: center;
+     justify-content: center;
+     flex-wrap: wrap;
+     gap: 2rem;
 `;
 
 export const StatusCHaracter = styled.span`
@@ -37,7 +37,6 @@ export const StatusCHaracter = styled.span`
      border-radius: 50%;
      margin-right: 5px;
 `;
-
 
 export const MainContainerLoader = styled.div`
      display: flex;

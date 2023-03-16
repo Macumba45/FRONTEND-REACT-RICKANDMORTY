@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import { Props } from './type';
+import {FC} from 'react';
+import {Props} from './type';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { motion } from 'framer-motion';
-import { Menu, MenuItem } from '@mui/material';
-import { useNavBarLogic } from './logic';
+import {motion} from 'framer-motion';
+import {Menu, MenuItem} from '@mui/material';
+import {useNavBarLogic} from './logic';
 import {
      Nav,
      IconContainerLogin,
@@ -20,7 +20,6 @@ import {
      ConditionalContainer,
 } from './styles';
 
-
 const NavBar: FC<Props> = () => {
      const {
           isNavBarLogin,
@@ -34,8 +33,7 @@ const NavBar: FC<Props> = () => {
 
      return (
           <>
-               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-
+               <motion.div initial={{opacity: 0}} animate={{opacity: 1}}>
                     {isNavBarLogin ? (
                          <Nav>
                               <NavContainerNotLogged>
@@ -48,7 +46,7 @@ const NavBar: FC<Props> = () => {
                                         Register
                                    </NavbarLinkNotLogged>
                               </NavContainerNotLogged>
-                         </Nav >
+                         </Nav>
                     ) : (
                          <NavLogged>
                               <NavContainerLogged>
@@ -65,7 +63,7 @@ const NavBar: FC<Props> = () => {
                                                   aria-controls="menu"
                                                   aria-haspopup="true"
                                                   aria-label="menu"
-                                                  sx={{ ml: 0.1, color: 'white' }}
+                                                  sx={{ml: 0.1, color: 'white'}}
                                                   onClick={handleMenuOpen}
                                              >
                                                   <MenuIcon />
@@ -99,11 +97,9 @@ const NavBar: FC<Props> = () => {
                                    </NavbarLinkLogged>
                               </NavContainerLogged>
                          </NavLogged>
-                    )
-                    }
+                    )}
                </motion.div>
-
-          </ >
+          </>
      );
 };
 
