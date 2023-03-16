@@ -1,6 +1,5 @@
-import { FC, memo } from "react"
+import { FC, memo, useCallback, useState } from "react"
 import { CardProps } from "./types";
-import imgTest from '../../assets/wp6507378.jpg'
 import {
     MainContainer,
     CustomCard,
@@ -19,12 +18,20 @@ import {
     IconsContainer,
     TypographyContainer,
     SubContainerSubGeneral,
-    CustomImg
+    CustomImg,
 } from "./styles";
 
 const CardCharacter: FC<CardProps> = ({
     ...props
 }) => {
+    const [showOptions, setShowOptions] = useState(false);
+    const [isFav , setIsFav] = useState(false);
+    const toggleFav = useCallback(() => {
+        setIsFav(!isFav);
+    },[isFav])
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const toggleShowMore = useCallback(() => setShowOptions(!showOptions)
+        , [showOptions]);
     return (
         <MainContainer>
             <CustomCard>
@@ -46,13 +53,13 @@ const CardCharacter: FC<CardProps> = ({
                         </Typography>
                         <Typography >
                             <Link>
-                                {props.species}
+                            Specie: {props.species}
                             </Link>
                         </Typography>
                         <FavIconContainer
                             aria-label="Like minimal photography"
                         >
-                            <FavIcon />
+                            <FavIcon onClick={() => toggleFav()} $isFav={isFav} />
                         </FavIconContainer>
                     </SubContainerSubGeneral>
 
@@ -64,20 +71,28 @@ const CardCharacter: FC<CardProps> = ({
                             <StatusCharacter $isDead={props.status!} />
                             {props.status}
                         </Typography>
-                        <Typography>
+                        <Typography onClick={props.handleDetails}>
                             ID: {props.character_id}
                         </Typography>
                     </TypographyContainer>
 
                     <IconsContainer>
                         <MoreButton
-                        onClick={props.toggleShowMore}
+                        onClick={() => toggleShowMore()}
                         />
-                        <>
-                            <CreateButton onClick={props.handleCreate} />
-                            <EditButton onClick={props.handleUpdate} />
-                            <DeleteButton onClick={props.handleDelete} />
-                        </>
+                        
+                        
+                            {
+                                showOptions && 
+                                <>
+                                    <CreateButton onClick={props.handleCreate} />
+                                    <EditButton onClick={props.handleUpdate} />
+                                    <DeleteButton onClick={props.handleDelete} />
+                                </>
+                            }
+                        
+                            
+                        
                     </IconsContainer>
                 </SubContainerInfo>
             </CustomCard>

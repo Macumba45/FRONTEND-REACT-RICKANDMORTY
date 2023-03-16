@@ -7,7 +7,6 @@ import { deleteCharacter, fetchCharactersList } from '../../services/api/charact
 const useLogic = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
-    const [showOptions, setShowOptions] = useState(false);
     const [characters, setCharacters] = useState<CharacterInput[]>([]);
     const [variant] = useState<VariantProp>('soft');
 
@@ -16,22 +15,20 @@ const useLogic = () => {
     }, [navigate]);
 
 
-    const toggleOptionsMenu = useCallback(() => {
-        setShowOptions(!showOptions);
-    }, [showOptions]);
 
 
     const getCharacters = useCallback(async () => {
         setLoading(true);
         const data = await fetchCharactersList();
         setCharacters(data);
+        console.log(data)
         setTimeout(() => {
             setLoading(false);
         }, 2000);
     }, []);
 
     const navigateToCreate = useCallback(() => {
-        navigate(`/character-create`);
+        navigate(`/create-character`);
     }, [navigate]);
     const navigateToEdit = useCallback((id: string) => {
         navigate(`/editCharacter/${id!}`);
@@ -52,8 +49,6 @@ const useLogic = () => {
         characters,
         loading,
         variant,
-        showOptions,
-        toggleOptionsMenu,
         navigateToCreate,
         navigateToEdit,
         handleDeleteCharacter

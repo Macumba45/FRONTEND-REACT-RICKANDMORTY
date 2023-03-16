@@ -16,9 +16,6 @@ const useLogic = () => {
      const goToCharactersList = () => {
           navigate(`/characters`);
      }
-     const goToEdit = (id:string) => {
-          navigate(`/editCharacter/${id!}`);
-     }
      useEffect(() => {
           getCharacterDetail();
      }, [getCharacterDetail]);
@@ -26,7 +23,6 @@ const useLogic = () => {
      return {
           getCharacterDetail,
           goToCharactersList,
-          goToEdit,
           character
      };
 };

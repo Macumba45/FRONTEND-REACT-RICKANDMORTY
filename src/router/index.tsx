@@ -114,76 +114,77 @@ const Router: FC = () => {
                         </PublicRoute>
                     }
                 />
-                    <Route
-                         path="/login"
-                         element={
-                              <PublicRoute>
-                                   <Login />
-                              </PublicRoute>
-                         }
-                    />
-                    <Route
-                         path="/signup"
-                         element={
-                              <PublicRoute>
-                                   <SignUp />
-                              </PublicRoute>
-                         }
-                    />
-                    <Route
-                         path="/welcome"
-                         element={
-                              <ProtectedRoutes>
-                                   <Welcome />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/characters"
-                         element={
-                              <ProtectedRoutes>
-                                   <TestCharacters />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route path="/characters/:id" element={<ProtectedRoutes><CharactersDetails /></ProtectedRoutes>} />
-                    <Route path="/editCharacter/:id" element={<ProtectedRoutes><CharacterEditForm /></ProtectedRoutes>} />
-                    <Route
-                         path="/episodes"
-                         element={
-                              <ProtectedRoutes>
-                                   <Episodes />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/episodes/:id"
-                         element={
-                              <ProtectedRoutes>
-                                   <EpisodesDetails />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/locations"
-                         element={
-                              <ProtectedRoutes>
-                                   <Locations />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/profile"
-                         element={
-                              <ProtectedRoutes>
-                                   <Profile />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route path="*" element={<NotFound />} />
-               </Routes>
-          </BrowserRouter>
-     );
+                <Route
+                    path="/login"
+                    element={
+                        <PublicRoute>
+                            <Login />
+                        </PublicRoute>
+                    }
+                />
+                <Route
+                    path="/signup"
+                    element={
+                        <PublicRoute>
+                            <SignUp />
+                        </PublicRoute>
+                    }
+                />
+                <Route
+                    path="/welcome"
+                    element={
+                        <ProtectedRoutes>
+                            <Welcome />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route
+                    path="/characters"
+                    element={
+                        <ProtectedRoutes>
+                            <TestCharacters />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route path="/characters/:id" element={<ProtectedRoutes><CharactersDetails /></ProtectedRoutes>} />
+                <Route path="/editCharacter/:id" element={<ProtectedRoutes><CharacterEditForm /></ProtectedRoutes>} />
+                <Route path="/create-character" element={<ProtectedRoutes><CharacterEditForm /></ProtectedRoutes>} />
+                <Route
+                    path="/episodes"
+                    element={
+                        <ProtectedRoutes>
+                            <Episodes />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route
+                    path="/episodes/:id"
+                    element={
+                        <ProtectedRoutes>
+                            <EpisodesDetails />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route
+                    path="/locations"
+                    element={
+                        <ProtectedRoutes>
+                            <Locations />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoutes>
+                            <Profile />
+                        </ProtectedRoutes>
+                    }
+                />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </BrowserRouter>
+    );
 };
 
 export default memo(Router);

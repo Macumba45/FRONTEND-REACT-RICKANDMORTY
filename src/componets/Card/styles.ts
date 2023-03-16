@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ReactComponent as DefaultMenuIcon } from '../../assets/icons/ellipsis-solid.svg';
 import { ReactComponent as DefaultCircleDead } from '../../assets/icons/circle-solid.svg';
+import { ReactComponent as HeartIcon } from '../../assets/icons/heart-regular.svg';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -10,11 +11,45 @@ export const MainContainer = styled.div`
     display: flex;
     flex-flow: row;
     gap: 2rem;
-    height: 25rem;
+    height: auto;
     justify-content: center;
     margin-bottom: 5rem;
-    margin-top: 7rem;
-    width: 100%;
+    margin-top: 3rem;
+    padding: auto 0;
+    width: 70%;
+    transform: scale(1);
+    transition: all 0.6s ease-in-out;
+    @media (min-width: 389px) {
+        width: 66.5%;
+        margin-top: -1rem;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+    @media (min-width: 400px) {
+        width: 63.5%;
+        margin-top: 3rem;
+    }
+    @media (min-width: 768px) {
+        width: 33.9%;
+        margin-top: 3rem;
+    }
+    @media (min-width: 820px) {
+        width: 31.9%;
+        margin-top: 3rem;
+    }
+    @media (min-width: 1028px) {
+        width: 13.9%;
+        margin-top: 3rem;
+    }
+    &:hover{
+        cursor: pointer;
+        // transform: scale(1.05);
+        transition: all 0.6s ease-in-out;
+        margin: 0 2rem;
+        position: relative;
+        top: -30px
+    }
 `;
 
 export const CustomCard = styled.div`
@@ -27,9 +62,9 @@ export const CustomCard = styled.div`
     flex-flow: row wrap;
     height: 100%;
     justify-content: space-around;
-    padding: .5rem;
+    padding: 0 .5rem;
     text-align: center;
-    width: 70%;
+    width: 100%;
 `;
 export const SubContainerGeneral = styled.div`
     align-items: center;
@@ -45,6 +80,7 @@ export const SubContainerSubGeneral = styled.div`
     flex-flow: row;
     justify-content: center;
     text-align: center;
+    margin-top: 1.5rem;
     width: 100%;
 `;
 export const SubContainerInfo = styled.div`
@@ -61,9 +97,8 @@ export const IconsContainer = styled.div`
     align-items: center;
     display: flex;
     flex-flow: row wrap;
-    height: 20rem;
+    height: 5rem;
     justify-content: space-evenly;
-    margin-top: 2rem;
     text-align: center;
     width: 100%;
 `;
@@ -89,15 +124,18 @@ export const FavIconContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 100%;
+    width: 40%;
+    height: 2rem;
 `;
 
-export const FavIcon = styled.div`
+export const FavIcon = styled(HeartIcon)<{$isFav: Boolean}>`
     align-items: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 100%;
+    width: 50%;
+    ${({$isFav, theme}) => ($isFav? `fill: ${theme.colors.danger};` : `fill: ${theme.colors.tertiary};`)}
+    display: flex;
 `;
 
 export const Typography = styled.div`
@@ -113,7 +151,7 @@ export const Link = styled.a`
 `;
 
 export const StatusCharacter = styled(DefaultCircleDead)<{$isDead: String}>`
-    ${({$isDead, theme}) => ($isDead !== 'Alive'? `fill: ${theme.colors.quaternary};` : `fill: ${theme.colors.danger};`)}
+    ${({$isDead, theme}) => ($isDead !== 'Alive'? `fill: ${theme.colors.danger};` : `fill: ${theme.colors.quaternary};`)}
     display: flex;
     flex-flow: row wrap;
     height: 10px;
@@ -126,7 +164,6 @@ export const CustomImg = styled.img`
     background-size: cover;
     background:url(../img/imagen.jpg);
     height:279px;
-    padding:13px;
     width:279px;
 `;
 

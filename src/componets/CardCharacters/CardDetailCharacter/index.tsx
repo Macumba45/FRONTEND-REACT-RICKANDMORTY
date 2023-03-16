@@ -6,7 +6,6 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
-import StartIcon from '@mui/icons-material/Start';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Link from '@mui/joy/Link';
 import Favorite from '@mui/icons-material/Favorite';
@@ -15,7 +14,7 @@ import { CharacterProps } from '../types';
 import useLogic from './logic';
 
 const CardCharacterDetail: FC<CharacterProps> = () => {
-     const { character, goToCharactersList,goToEdit } = useLogic();
+     const { character, goToCharactersList } = useLogic();
      return (
           <MainContainerDetail>
                <Card variant="outlined" sx={{ width: 320, height: 400, display: 'flex', justifyContent: 'space-around' }}>
@@ -74,9 +73,6 @@ const CardCharacterDetail: FC<CharacterProps> = () => {
                                    marginRight: '1rem',
                               }}
                          />
-                         <button onClick={() => goToEdit(character!.id!)}>
-                              EDIT
-                         </button>
                     </CardOverflow>
 
                </Card>
