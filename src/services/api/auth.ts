@@ -1,5 +1,5 @@
-import {LoginProps} from '../../views/auth/Login/type';
-import {SignUpProps} from '../../views/auth/SignUp/type';
+import { LoginProps } from '../../views/auth/Login/type';
+import { SignUpProps } from '../../views/auth/SignUp/type';
 const BASE_URL = 'http://localhost:8000/auth/';
 
 /**
@@ -31,7 +31,9 @@ export const handelSubmitLogin = async (
  * *handledSubmitLogin*
  * *Allow a user to sign up our app. This function calls to the specific endpoint in our back-end*
  */
-export const handelSubmitSignup = async (values: SignUpProps) => {
+export const handelSubmitSignup = async (
+     values: SignUpProps
+): Promise<Response> => {
      try {
           const response = await fetch(`${BASE_URL}signup`, {
                method: 'POST',

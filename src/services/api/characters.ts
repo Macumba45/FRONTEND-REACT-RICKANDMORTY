@@ -17,33 +17,29 @@ export type CharacterSpecieResponse = {
     species: string;
 };
 
-export async function fetchCharactersList() {
+/**
+ * *fetchCharactersList*
+ * *This function bring all the characters from our back-end, pointing to the specific end-point*
+ */
+export async function fetchCharactersList(): Promise<CharacterResponse[]> {
     const token = getAuthenticatedToken();
     const response = await fetch(BASE_URL, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
         },
     });
     const data: CharacterResponse[] = await response.json();
     return data.map(normalizeCharacter);
 }
 
-// export async function fetchCharactersSpecie() {
-//     const token = getAuthenticatedToken();
-//     const response = await fetch(`${BASE_URL}/species`, {
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Bearer ${token}`,
-//             'Content-Type': 'application/json',
-//         },
-//     });
-//     const data: CharacterSpecieResponse[] = await response.json();
-//     return data.map(normalizeSpecies);
-// }
-
-export async function fetchCharacter(id: string) {
+/**
+ * *fetchCharacter*
+ * *This function one character by Id from our back-end, pointing to the specific end-point*
+ */
+export async function fetchCharacter(
+    id: string
+) {
     const token = getAuthenticatedToken();
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: 'GET',
@@ -55,8 +51,11 @@ export async function fetchCharacter(id: string) {
     const data: CharacterResponse = await response.json();
     return normalizeCharacter(data);
 }
-
-export async function UpdateCharacter(
+/**
+ * *updateCharacter*
+ * *This function modify one character by Id from our back-end, pointing to the specific end-point*
+ */
+export async function updateCharacter(
     id: string,
     values: { name: string; status: string; species: string }
 ) {
@@ -67,14 +66,19 @@ export async function UpdateCharacter(
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(values)
     });
     const data = await response.json();
     // MUST NORMALIZE DATA HERE
     return data;
 }
-
-export const deleteCharacter = async (id: string) => {
+/**
+ * *deleteCharacter*
+ * *This function delete one character by Id from our back-end, pointing to the specific end-point*
+ */
+export const deleteCharacter = async (
+    id: string
+) => {
     const token = getAuthenticatedToken();
     await fetch(`http://localhost:8000/characters/${id}`, {
         method: 'DELETE',
