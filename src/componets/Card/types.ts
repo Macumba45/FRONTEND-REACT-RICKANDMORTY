@@ -6,6 +6,7 @@ export type CardProps = {
      species?: string;
      image?: string;
      createdAt?: Date;
+     handlePostFavs: (id: string) => void;
      handleDetails?: () => void;
      handleDelete?: () => void;
      handleUpdate?: () => void;

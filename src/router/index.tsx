@@ -5,7 +5,6 @@ import Login from '../views/auth/Login';
 import {getAuthenticatedToken} from '../services/storage';
 import SignUp from '../views/auth/SignUp';
 import Welcome from '../views/Welcome';
-import Characters from '../views/Characters';
 import CharactersDetails from '../views/CharacterDetails';
 import Episodes from '../views/Episodes';
 import Locations from '../views/Locations';
@@ -13,9 +12,8 @@ import Profile from '../views/Profile';
 import EpisodesDetails from '../views/EpisodesDetails';
 import {Box, Button, Container, Typography} from '@mui/material';
 import Grid from '@mui/material/Grid';
-import CharacterForm from '../componets/CharacterForm';
 import CharacterEditForm from '../views/CharacterEditForm';
-import TestCharacters from '../views/TestCharacters';
+import TestCharacters from '../views/Characters';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
